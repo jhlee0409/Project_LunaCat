@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="129" height="48" viewBox="0 0 129 48">
+  <g id="그룹_4540" data-name="그룹 4540" transform="translate(-974 11949.203)">
+    <g id="타원_185" data-name="타원 185" transform="translate(1011.999 -11938.203)" fill="#fff" stroke="#a49fba" stroke-width="2">
+      <circle cx="5" cy="5" r="5" stroke="none"/>
+      <circle cx="5" cy="5" r="4" fill="none"/>
+    </g>
+    <g id="타원_186" data-name="타원 186" transform="translate(998 -11938.203)" fill="#fff" stroke="#a49fba" stroke-width="2">
+      <circle cx="5" cy="5" r="5" stroke="none"/>
+      <circle cx="5" cy="5" r="4" fill="none"/>
+    </g>
+    <g id="사각형_1527" data-name="사각형 1527" transform="translate(1009.999 -11928.816)" fill="#fff" stroke="#a49fba" stroke-width="2">
+      <path d="M7,0H7a7,7,0,0,1,7,7v6a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V7A7,7,0,0,1,7,0Z" stroke="none"/>
+      <path d="M7,1H7a6,6,0,0,1,6,6v4.667a.333.333,0,0,1-.333.333H1.333A.333.333,0,0,1,1,11.667V7A6,6,0,0,1,7,1Z" fill="none"/>
+    </g>
+    <g id="사각형_1528" data-name="사각형 1528" transform="translate(996 -11928.816)" fill="#fff" stroke="#a49fba" stroke-width="2">
+      <path d="M7,0H7a7,7,0,0,1,7,7v6a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V7A7,7,0,0,1,7,0Z" stroke="none"/>
+      <path d="M7,1H7a6,6,0,0,1,6,6v4.667a.333.333,0,0,1-.333.333H1.333A.333.333,0,0,1,1,11.667V7A6,6,0,0,1,7,1Z" fill="none"/>
+    </g>
+    <g id="타원_57" data-name="타원 57" transform="translate(1005 -11937.203)" fill="#fff" stroke="#a49fba" stroke-width="2">
+      <circle cx="5" cy="5" r="5" stroke="none"/>
+      <circle cx="5" cy="5" r="4" fill="none"/>
+    </g>
+    <g id="사각형_278" data-name="사각형 278" transform="translate(1002 -11928.203)" fill="#fff" stroke="#a49fba" stroke-width="2">
+      <path d="M8,0H8a8,8,0,0,1,8,8v7a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V8A8,8,0,0,1,8,0Z" stroke="none"/>
+      <path d="M8,1H8a7,7,0,0,1,7,7v5.612A.389.389,0,0,1,14.61,14H1.389A.389.389,0,0,1,1,13.611V8A7,7,0,0,1,8,1Z" fill="none"/>
+    </g>
+  </g>
+  <text id="Follow" transform="translate(56 31)" fill="#222" font-size="16" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"><tspan x="0" y="0">Follow</tspan></text>
+</svg>

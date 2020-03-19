@@ -1,38 +1,186 @@
-.App {
-  text-align: center;
+body {
+  margin: 0;
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.main {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  border: 1px solid black;
+  margin: 15px;
+}
+.article {
+  border: 1px solid black;
+  margin: 0 25px;
+  padding: auto;
+  height: 1000px;
+  width: 100%;
+  
 }
 
-.App-link {
-  color: #61dafb;
+/* 업로드 섹션 */
+.article.a {
+  text-align: center;
+  
+}
+.Upload {
+  height: 30%;
+  width: auto;
+}
+ 
+
+.article.a button { 
+  margin: auto;
+  display: block;
+}
+ .ImageUploaderButton {
+  background: url('./svg/UploadButton.svg') !important;
+  background-size: 88px !important;
+  width:88px !important;
+  height: 88px !important;
+  border: none !important;
+  background-color: none !important;
+  z-index: 1;
+  position: absolute;
+  }
+
+.ImaUp > div {
+  box-shadow: none;
+}
+.fileContainer {
+  background: none !important;
+  overflow: scroll;
+  height: 900px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.deleteImage{
+  text-indent:-10000px;
+  background: url('./svg/deleteButton.svg') !important;
+  top: 0!important ;
+  right: 0 !important;
 }
+.deleteImage:hover{
+  text-indent:-10000px;
+  background: url('./svg/deleteButtonOn.svg')!important ;
+  top: 0 !important;
+  right: 0 !important;
+}
+.uploadPicturesWrapper {
+  position: relative ;
+ 
+}
+.uploadPictureContainer {
+  background: none !important;
+  box-shadow: none !important;
+  border: 1px solid #A49FBA !important;
+  border-radius: 10px;
+  padding: 2px 10px !important;
+  margin: auto !important;
+  width: 150px !important;
+  height: 200px !important;
+  overflow: hidden;
+  
+}
+
+/* 웹툰 보는 섹션 */
+
+/* 게시하기 섹션 */
+
+.UploadTitle {
+  width: 99%;
+  border: none;
+  outline: none;
+
+}
+
+.sns-text {
+  resize: none;
+  border: none;
+  outline: none;
+  width: 97%;
+  height: 220px; 
+}
+
+.PostOption {
+  margin: 0 10px;
+}
+
+.PO {
+  line-height: 60px;
+  height: 60px;
+  color: #A49FBA;
+  padding: 10px; 
+  display:flex;
+}
+
+.PO input {
+  margin: 0 10px ;
+}
+
+.Post button {
+  position: relative;
+  left: 80%;
+  border: none;
+  max-width: 107px !important;
+  min-width: 107px !important;
+}
+.Post button:hover {
+  position: relative;
+  border: none;
+  max-width: 107px !important;
+  min-width: 107px !important;
+}
+
+
+/* 팝업 */
+h1 {
+  margin: 0;
+  padding: 0;
+}
+html, body, .app {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+.popup {
+  z-index: 2;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: rgba(0,0,0, 0.5);
+}
+.popup_inner {
+  z-index: 5;
+  border-radius: 10px;
+  padding: 20px;
+  position: absolute;
+  width: 300px;
+  height: 380px;
+  left: 25%;
+  right: 25%;
+  top: 25%;
+  bottom: 25%;
+  margin: auto;
+  background: url('./svg/popup/backgroundImg.svg');;
+}
+
+.Pf  {
+  width: 100px;
+  padding: 15px 0 0 20px;
+}
+
+.Pf button {
+  margin-bottom: 35px;
+}
+.Pf button:hover {
+  margin-bottom: 35px;
+}
+
+
+
