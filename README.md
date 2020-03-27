@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 프로젝트 연습용
 
 
+=======
+LunaCat React Project, Build WebSite
+>>>>>>> c6c99e65c76e89501c04f5ad72e97f082d7b0280
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

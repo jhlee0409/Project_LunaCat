@@ -2,54 +2,59 @@ import React, { Component } from 'react';
 import '../App.css';
 import ImageUploader from 'react-images-upload';
 
+function expandIamges(imgs) {
+  var expandImg = document.getElementById("preview-container");
+  expandImg.src = imgs.src;
+  expandImg.parentElement.style.display = 'block'
+} 
 
 class ImageUploaderJS extends Component {
   constructor(props) {
     super(props);
     this.onDrop = this.onDrop.bind(this);
     this.state = {
-      items: [],
+      pictures: [],
       maxSize: 50,
     }
   }
-  componentDidUpdate = preState => {
-    if (preState.items !== this.state.items) {
-      this.renderPreviews();
+
+  componentDidUpdate = () => {
+    const iimg = document.getElementsByClassName('uploadPicture')
+    for (var i=0; i < iimg.length; i++) {
+      iimg[i].onclick = expandIamges(this)
     }
   }
+
     renderPreviews = () => {
-    const { items } = this.state;
+    const { pictures } = this.state;
     const previewContainer = document.getElementById("preview-container");
-    for (let i = 0; i < items.length; i++) {
+    for (let i = 0; i < pictures.length; i++) {
       const preview = document.createElement("img");
-      const btn = document.createElement('button')
       preview.id = `preview_${i}`;
       preview.style.width = '100%';
-    
-      btn.id = `btn_${i}`;
-      btn.style.position = 'absolute'
-      btn.style.right = '50px'
-
-      previewContainer.appendChild(btn);
+      preview.style.cursor = 'pointer';
+      preview.onclick = function(){
+        this.parentElement.removeChild(this);
+      }
       previewContainer.appendChild(preview);
       const reader = new FileReader();
       reader.onload = function(evt) {
-        preview.src = reader.result;
-        btn.innerHTML = 'as'
+        preview.src = reader.result;       
       };
-      reader.readAsDataURL(items[i]);
+      reader.readAsDataURL(pictures[i]);
     }
   };
+
   onDrop(picture) {
     this.setState({
-      items: this.state.items.concat(picture)
+      pictures: this.state.pictures.concat(picture)
     })
   }
   
   render(){  
-    
+    console.log(this.state.pictures)
     return(         
-      <div>              
+      <div>           
           <ImageUploader   
           withPreview={true}
           withIcon={false}
@@ -62,9 +67,6 @@ class ImageUploaderJS extends Component {
           fileTypeError='.jpg, .gif, .png 만 가능해요'
           imgExtension={['.jpg', '.gif', '.png']}
           maxFileSize={1024*1024*this.state.maxSize}/>   
-      <div className="App" style={{ marginTop: "100px" }}>
-        
-      </div>
       </div>
     )
   }
