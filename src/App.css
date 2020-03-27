@@ -1,8 +1,42 @@
-body {
-  margin: 0;
 
+html, body, #page-content {
+  overflow: auto;
+}
+.Logo {
+  padding: 10px 20px 0 20px;
+  
+}
+.top {
+  display: flex;
+  width: 100%;
+  height: 54px;
+  box-shadow: 0px 2px 3px #E9E9E9 ;
+  padding: 15px 0;
+  align-items: center;
+  
 }
 
+.Mode {
+  display: flex;
+  margin: 0 65px;
+}
+.Mode .gqppJ {
+  margin-left: 10px;
+}
+.serchBar {
+  height: 40px;
+  width: 970px;
+  margin-right: 10px;
+}
+.option {
+  display: flex;
+  margin-left: 30px;
+}
+.option .sc-AxjAm {
+  margin: 0 20px;
+}
+
+/* 메인 -----------------------------------------------------------------------------------------------------------------*/
 .main {
   display: flex;
   border: 1px solid black;
@@ -10,14 +44,12 @@ body {
 }
 .article {
   border: 1px solid black;
-  margin: 0 25px;
-  padding: auto;
-  height: 1000px;
-  width: 100%;
-  
+  margin: 0 15px;
+  min-height: 630px;
+
 }
 
-/* 업로드 섹션 */
+/* 업로드 섹션 -----------------------------------------------------------------------------------------------------------------*/
 .article.a {
   text-align: center;
   
@@ -32,24 +64,51 @@ body {
   margin: auto;
   display: block;
 }
+.article.a label { 
+ font-size: 20px;
+ font-weight: 500;
+}
  .ImageUploaderButton {
   background: url('./svg/UploadButton.svg') !important;
   background-size: 88px !important;
-  width:88px !important;
+  width: 88px !important;
   height: 88px !important;
   border: none !important;
-  background-color: none !important;
   z-index: 1;
   position: absolute;
+  top: 40%;
+  transition: 0.3s;
   }
+
+ .ImageUploaderButton:hover {
+  background: url('./svg/UploadButton.svg') !important;
+  background-size: 88px !important;
+  transition: 0.3s;
+  opacity: 0.8;
+
+ }
+
 
 .ImaUp > div {
   box-shadow: none;
+
 }
+
 .fileContainer {
   background: none !important;
-  overflow: scroll;
-  height: 900px;
+  position: initial !important;
+}
+
+
+
+.uploadPicturesWrapper > div {
+  top: -30px !important;
+  max-height: 630px;
+  overflow-y: scroll;
+}
+
+.uploadPicturesWrapper > div::-webkit-scrollbar {
+  display:none;
 }
 
 .deleteImage{
@@ -57,15 +116,18 @@ body {
   background: url('./svg/deleteButton.svg') !important;
   top: 0!important ;
   right: 0 !important;
+  transition: 0.3s;
 }
 .deleteImage:hover{
   text-indent:-10000px;
   background: url('./svg/deleteButtonOn.svg')!important ;
   top: 0 !important;
   right: 0 !important;
+  transition: 0.3s;
 }
 .uploadPicturesWrapper {
   position: relative ;
+  
  
 }
 .uploadPictureContainer {
@@ -74,30 +136,32 @@ body {
   border: 1px solid #A49FBA !important;
   border-radius: 10px;
   padding: 2px 10px !important;
-  margin: auto !important;
-  width: 150px !important;
-  height: 200px !important;
+  margin: 5px 2.5px !important;
+  width: 130px !important;
+  height: 195px !important;
   overflow: hidden;
-  
 }
 
-/* 웹툰 보는 섹션 */
+/* 웹툰 보는 섹션 -----------------------------------------------------------------------------------------------------------------*/
 
-/* 게시하기 섹션 */
+/* 게시하기 섹션 -----------------------------------------------------------------------------------------------------------------*/
 
 .UploadTitle {
   width: 99%;
   border: none;
-  outline: none;
+  outline: none; 
+  margin-bottom: 20px;
+  font-size: 16px;
+
 
 }
-
 .sns-text {
   resize: none;
   border: none;
   outline: none;
   width: 97%;
   height: 220px; 
+  font-size: 16px;
 }
 
 .PostOption {
@@ -110,15 +174,20 @@ body {
   color: #A49FBA;
   padding: 10px; 
   display:flex;
+  align-items: center;
 }
 
 .PO input {
   margin: 0 10px ;
+  transition: 0.5s;
+}
+.PO input:hover {
+  opacity: 0.7;
 }
 
 .Post button {
   position: relative;
-  left: 80%;
+  left: 75%;
   border: none;
   max-width: 107px !important;
   min-width: 107px !important;
@@ -156,7 +225,7 @@ html, body, .app {
   background-color: rgba(0,0,0, 0.5);
 }
 .popup_inner {
-  z-index: 5;
+  z-index: 2;
   border-radius: 10px;
   padding: 20px;
   position: absolute;
@@ -167,10 +236,11 @@ html, body, .app {
   top: 25%;
   bottom: 25%;
   margin: auto;
-  background: url('./svg/popup/backgroundImg.svg');;
+  background-color: #fff;
 }
 
 .Pf  {
+  height: 365px;
   width: 100px;
   padding: 15px 0 0 20px;
 }
@@ -181,6 +251,17 @@ html, body, .app {
 .Pf button:hover {
   margin-bottom: 35px;
 }
+.popup-content {
+  padding: 0 !important;
+  border: none !important;
+}
 
+/* =------------------------------------ */
+.divide {
+  display: flex;
+  align-items: center;
+}
 
-
+.makeStyles-list-300::-webkit-scrollbar {
+  display:none;
+}

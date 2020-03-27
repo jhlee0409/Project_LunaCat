@@ -8,7 +8,7 @@
       <feComposite in="SourceGraphic"/>
     </filter>
   </defs>
-  <g id="그룹_4754" data-name="그룹 4754" transform="translate(-296 -399)" opacity="0.9">
+  <g id="그룹_4754" data-name="그룹 4754" transform="translate(-296 -399)" >
     <g transform="matrix(1, 0, 0, 1, 296, 399)" filter="url(#패스_2255)">
       <path id="패스_2255-2" data-name="패스 2255" d="M44,0A44,44,0,1,1,0,44,44,44,0,0,1,44,0Z" transform="translate(9 6)" fill="#fff" opacity="0.9"/>
     </g>
