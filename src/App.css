@@ -45,13 +45,14 @@ html, body, #page-content {
 .article {
   border: 1px solid black;
   margin: 0 15px;
-  min-height: 630px;
+  
 
 }
 
 /* 업로드 섹션 -----------------------------------------------------------------------------------------------------------------*/
 .article.a {
   text-align: center;
+  min-height: 630px;
   
 }
 .Upload {
@@ -75,9 +76,9 @@ html, body, #page-content {
   height: 88px !important;
   border: none !important;
   z-index: 1;
-  position: absolute;
   top: 40%;
   transition: 0.3s;
+  position: absolute;
   }
 
  .ImageUploaderButton:hover {
@@ -88,7 +89,9 @@ html, body, #page-content {
 
  }
 
-
+.ImaUp{
+  position: relative;
+}
 .ImaUp > div {
   box-shadow: none;
 
@@ -187,7 +190,7 @@ html, body, #page-content {
 
 .Post button {
   position: relative;
-  left: 75%;
+  left: 65%;
   border: none;
   max-width: 107px !important;
   min-width: 107px !important;
@@ -264,4 +267,12 @@ html, body, .app {
 
 .makeStyles-list-300::-webkit-scrollbar {
   display:none;
+}
+
+.Age {
+  background: url('./svg/Off/P_age.svg');
+  width: 72px;
+  height: 32px;
+  border: none;
+  cursor: pointer;
 }

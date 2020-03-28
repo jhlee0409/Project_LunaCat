@@ -67,6 +67,7 @@ class ImageUploaderJS extends Component {
           fileTypeError='.jpg, .gif, .png 만 가능해요'
           imgExtension={['.jpg', '.gif', '.png']}
           maxFileSize={1024*1024*this.state.maxSize}/>   
+      
       </div>
     )
   }
