@@ -41,7 +41,6 @@ const hoverImg = css`
         background: url(${({ backgroundH }) => backgroundH});
         background-size: contain;       
         height: 100px;
-
         transition: 0.3s;
         ${Maxs}
     }
@@ -54,7 +53,6 @@ const StyledButton = styled.button`
     background: url(${({ background }) => background});
     background-size: contain;
     height: 100px;
-
     padding: 0;
     border: 0;
     cursor: pointer;

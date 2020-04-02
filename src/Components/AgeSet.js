@@ -16,7 +16,7 @@ export default class AgeSet extends Component {
       return(
         <div className='divide'>
           <div style={{fontSize:16, color: "#A49FBA"}}>연령설정 </div>        
-          <IconButton onClick={() => this.setState(state => ({ on: !state.on }))}>
+          <IconButton type="button" onClick={() => this.setState(state => ({ on: !state.on }))}>
           <ToggleIcon style={{width:72, height:32}} on={this.state.on} onIcon={<HomeIconOn/>} offIcon={<HomeIcon/>}/>
           </IconButton>
         </div>

@@ -31,7 +31,6 @@ class PostOption extends Component {
                 <StylingButton primary onClick={this.onAlert} background={P_post} backgroundH={P_postOn}/>
             </div>
             <input type='button'className ='Age' onClick={this.toggleFcn}/>
-            
         </div>
         ); 
     }  

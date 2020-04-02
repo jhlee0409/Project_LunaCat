@@ -103,26 +103,26 @@ class App extends Component {
       
         <nav className='top'>
         <Grid container spacing={1}>
-        <Grid style={{display: 'flex', alignItems:'center'}} item  md={5}  xs={10}>
+        <Grid style={{display: 'flex', alignItems:'center'}} item md={4} lg={5} xl={6}>
           <img className='Logo'src={logo} alt='로고'/>
 
           <input className='serchBar' type="serch" placeholder="검색어를 입력하세요."/>
           <StylingButton alt='검색' search background={search} backgroundH={searchOn}/>
           </Grid>
 
-        <Grid style={{display: 'flex', alignItems:'center'}} item  md={3}  xs={10}>
+        <Grid style={{display: 'flex', alignItems:'center'}} item md={4} lg={3} xl={2}>
           <div className='Mode'>
             <StylingButton alt='코믹' onClick={() =>this.onChange('Comic')} primary background={ComicButton} backgroundH={ComicButtonOn}/>
             <StylingButton alt='일러스트' onClick={() =>this.onChange("Illust")} primary background={IllustButton} backgroundH={IllustButtonOn}/>
           </div>    
           </Grid>
 
-        <Grid style={{display: 'flex', alignItems:'center'}} item  md={2}  xs={10}>
+        <Grid style={{display: 'flex', alignItems:'center'}} item md={3} lg={1} xl={2}>
           <StylingButton alt='팔로우' follow background={follow} backgroundH={followOn}/>
           <Popups alt='이름'/>
           </Grid>
 
-          <Grid style={{display: 'flex', alignItems:'center'}} item  md={1}  xs={10}>
+          <Grid style={{display: 'flex', alignItems:'center'}} item md={3} lg={1} xl={2}>
             <div className='option'>
               <StylingButton alt='대화' onClick={()=>this.togglePopup(2)} background={chat} backgroundH={chatOn}/>         
               <StylingButton alt='알림' onClick={()=>this.togglePopup(3)} background={alertt} backgroundH={alertOn}/>     
