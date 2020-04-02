@@ -1,0 +1,248 @@
+@charset "UTF-8";
+
+    html{font-size:14px;}
+    body{min-width:320px; transition: all 0.5s;}
+
+    .ReactModal__Overlay{
+        background-color: rgba(22, 22, 22, 0.3) !important;
+        z-index: 2;
+    }
+    
+    .ReactModal__Content {
+        border: none !important;
+        border-radius: 0 !important;
+        width: -webkit-fill-available ;
+        height: -webkit-fill-available;
+    }
+    .border-bottom {
+        width: 100%;
+        box-shadow: 0px 2px 3px #E9E9E9 ;
+        display: flex;
+        position: absolute;
+        top: 0;
+        left: 0;
+        align-items: center;
+        padding: 5px 0;
+        justify-content: space-between;
+    }
+    .join-main-x {
+        margin-left: 20px;
+        width: 75px;
+        height: 17px;
+        border: none;
+        background: url('./svg/backBtn.svg')  ;
+        cursor: pointer;
+    }
+    .span-active {
+        display: none;
+    }
+    .join-main div > span, .textLength {
+        color: #F99BB0;
+        font-size: 14px;
+    }
+    .join-main p {
+        display: block;
+        color: #A49FBA;
+    }
+    .inputBox {
+        border: 1px solid #c8c5d6;
+        border-radius: 10px;
+        padding: 15px;
+        transition: all 0.5s;
+        margin-top: 25px;
+    }
+    .join-main input {
+        width: 75%;
+        border: none;
+        transition: all 0.5s;
+        outline: none;
+    }
+    
+    .join-main input::placeholder {
+        font-size: 12px;
+        color: rgba(164, 159, 186, 0.5);
+    }
+    .join-main input:-ms-input-placeholder{
+        font-size: 12px;
+        color: rgba(164, 159, 186, 0.5);
+    }
+    .join-txt, .agree-modal, .agree-btn, .join-main span, .sub-btn {
+        font-weight: bold;
+    }
+    .join-txt{
+        padding: 20px 0;
+        text-align: center;
+    }
+    .agree-modal {
+        inline-size: auto !important;
+        cursor: pointer;
+        background-color: #fff;
+        font-size: initial;
+        color: #F7708F;   
+        text-decoration: none;
+    
+    }
+    .agree-modal:hover {
+        text-decoration: none;
+        text-decoration: underline;
+        transition: none;
+    
+    }
+    .agree-btn {
+        border: 2px solid #F7708F;
+        background-color: #fff;
+        width: 100px;
+        height: 40px;
+        border-radius: 44px;
+        color: #F7708F;
+        cursor: pointer;
+    }
+    .agree-btn:hover {
+        background-color: #F7708F;
+        color: #fff;
+    }
+    
+    .sub-btn:nth-of-type(2n-1) {
+        display: block;
+        border: 2px solid #F1AD39;
+        background-color: #fff;
+        width: 100px;
+        height: 40px;
+        border-radius: 44px;
+        color: #F1AD39;
+        cursor: pointer;
+        margin-right: 20px;
+    }
+    .sub-btn:nth-of-type(2n), .mail-check {
+        display: none;
+    }
+    
+    
+    .sub-btn:hover, .mail-check:hover {
+        background-color: #F1AD39;
+        color: #fff;
+    }
+    .consent-btn {
+        text-align-last: center;
+    }
+ 
+
+@media only screen and (min-width: 768px) {
+        
+}
+@media only screen and (min-width: 1000px) {
+
+    body{font-size:16px;}
+    
+    .ReactModal__Overlay{
+        background-color: rgba(22, 22, 22, 0.3) !important;
+        z-index: 2;
+    }
+    .ReactModal__Content {
+        border-radius: 10px !important;
+        width: 750px ;
+        height: auto;
+        
+        
+    }
+    .border-bottom {
+        box-shadow: none;
+    }
+    
+    .join-main-x {
+        position: absolute;
+        border: none;
+        top: -50px;
+        right: -45px;
+        width: 50px;
+        height: 50px;
+        background: url('./svg/bold-x.svg') ;
+        cursor: pointer;
+    }
+    
+    .join-main div > span, .textLength {
+        color: #F99BB0;
+        font-size: 14px;
+    }
+    .join-main p {
+        display: none;
+    }
+    .inputBox {
+        border: 1px solid #c8c5d6;
+        border-radius: 10px;
+        padding: 15px;
+        transition: all 0.5s;
+        margin-top: 25px;
+    }
+    .join-main input {
+        width: 75%;
+        border: none;
+        transition: all 0.5s;
+        outline: none;
+    }
+    
+    .join-main input::placeholder {
+        font-size: 12px;
+        color: rgba(164, 159, 186, 0.5);
+    }
+    .join-main input:-ms-input-placeholder{
+        font-size: 12px;
+        color: rgba(164, 159, 186, 0.5);
+    }
+    .join-txt {
+        padding: 20px 0;
+    }
+    .join-txt, .agree-modal, .agree-btn, .join-main span, .sub-btn {
+        font-weight: bold;
+    }
+    .agree-modal {
+        inline-size: auto !important;
+        cursor: pointer;
+        background-color: #fff;
+        font-size: initial;
+        color: #F7708F;   
+        text-decoration: none;
+    
+    }
+    .agree-modal:hover {
+        text-decoration: none;
+        text-decoration: underline;
+        transition: none;
+    
+    }
+    .agree-btn {
+        border: 2px solid #F7708F;
+        background-color: #fff;
+        width: 180px;
+        height: 48px;
+        border-radius: 44px;
+        color: #F7708F;
+        cursor: pointer;
+    }
+    .agree-btn:hover {
+        background-color: #F7708F;
+        color: #fff;
+    }
+    .sub-btn:nth-of-type(2n-1){
+        display: none;
+    }
+    .sub-btn:nth-of-type(2n), .mail-check {
+        display: block;
+        border: 2px solid #F1AD39;
+        background-color: #fff;
+        width: 180px;
+        height: 48px;
+        border-radius: 44px;
+        color: #F1AD39;
+        cursor: pointer;
+    }
+
+    .sub-btn:hover, .mail-check:hover {
+        background-color: #F1AD39;
+        color: #fff;
+    }
+    .consent-btn {
+        display: flex;
+        justify-content: space-between;
+    }
+}

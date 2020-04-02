@@ -100,42 +100,41 @@ class App extends Component {
   render(){
     return (
       <div className="App"> 
-      
+      <nav className='top'>
+        <button>asd</button>
+      </nav>
         <nav className='top'>
-        <Grid container spacing={1}>
-        <Grid style={{display: 'flex', alignItems:'center'}} item md={4} lg={5} xl={6}>
+
           <img className='Logo'src={logo} alt='로고'/>
 
           <input className='serchBar' type="serch" placeholder="검색어를 입력하세요."/>
           <StylingButton alt='검색' search background={search} backgroundH={searchOn}/>
-          </Grid>
 
-        <Grid style={{display: 'flex', alignItems:'center'}} item md={4} lg={3} xl={2}>
+
           <div className='Mode'>
             <StylingButton alt='코믹' onClick={() =>this.onChange('Comic')} primary background={ComicButton} backgroundH={ComicButtonOn}/>
             <StylingButton alt='일러스트' onClick={() =>this.onChange("Illust")} primary background={IllustButton} backgroundH={IllustButtonOn}/>
           </div>    
-          </Grid>
 
-        <Grid style={{display: 'flex', alignItems:'center'}} item md={3} lg={1} xl={2}>
+
           <StylingButton alt='팔로우' follow background={follow} backgroundH={followOn}/>
           <Popups alt='이름'/>
-          </Grid>
 
-          <Grid style={{display: 'flex', alignItems:'center'}} item md={3} lg={1} xl={2}>
+
             <div className='option'>
               <StylingButton alt='대화' onClick={()=>this.togglePopup(2)} background={chat} backgroundH={chatOn}/>         
               <StylingButton alt='알림' onClick={()=>this.togglePopup(3)} background={alertt} backgroundH={alertOn}/>     
               <StylingButton alt='설정' onClick={()=>this.togglePopup(4)} background={setup} backgroundH={setupOn}/>
             </div>
-          </Grid>
-          </Grid>
+
+
             {this.state.showPopup2 ? <Popup alt='대화' title={this.state.title[0].name} text={this.state.title[0].content} closePopup={()=>this.togglePopup(2)}/> : null}
             {this.state.showPopup3 ? <Popup alt='알림' title={this.state.title[1].name} text={this.state.title[1].content} closePopup={()=>this.togglePopup(3)}/> : null}
             {this.state.showPopup4 ? <Popup alt='설정' title={this.state.title[2].name} text={this.state.title[2].content} closePopup={()=>this.togglePopup(4)}/> : null} 
         </nav>
         <TopAlert/>
           {this.state.component}
+          
       </div>     
     ); 
   }
