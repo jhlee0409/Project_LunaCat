@@ -13,9 +13,8 @@ const customStyles = {
         left: '50% ',
         transform: 'translate(-50%, -50%) ',
         position: 'fixed',
-        overflow: 'visible ',
-        
-        
+        overflow: 'visible ',   
+        width: 750,    
     }
   };
 
@@ -35,15 +34,16 @@ function checkPasswordPattern() {
   var pw = document.getElementById('join-pass1').value;
   var pw2 = document.getElementById('join-pass2').value;
 
-  if(!pattern1.test(pw) || !pattern2.test(pw) || !pattern3.test(pw) || pw.length < 8) {
+  if(!pattern1.test(pw) || !pattern2.test(pw) || !pattern3.test(pw) || pw.length < 8 ) {
      alert("비밀번호는 8자리 이상 영문, 숫자, 특수문자로 구성하여야 합니다."); 
      return false; 
     } else { 
       if (pw !== pw2) {
         alert('비밀번호가 일치하지 않습니다.')
         return false;
-      }
-      return true; 
+      } else {
+        return true; 
+      }   
     } 
   }
 
@@ -61,7 +61,7 @@ class TextInput extends React.Component {
     var text = this.props.text;
     
     return (
-        <input value={text} placeholder="멋진 이름을 지어봐요^^" maxLength='30' onChange={this.handleChange} />
+        <input value={text} placeholder="멋진 이름을 지어봐요^^" maxLength='29' onChange={this.handleChange} />
     );
   }
 }
@@ -87,8 +87,12 @@ class PopModal extends Component {
     handleModal =()=> {
         this.setState({ showModal: !this.state.showModal });
     }
-    handleModal1 =()=> {
-        this.setState({ showModal1: !this.state.showModal1 });
+    handleModal1 =()=> { if (checkPasswordPattern() === true) {
+      this.setState({ showModal1: !this.state.showModal1 });
+    } else {
+      this.setState({ showModal1: false})
+    }
+        
     }
     handleLower(text) {
         this.setState({
@@ -106,7 +110,7 @@ class PopModal extends Component {
             {/* 회원가입모달*/}
             <input type ='button' onClick={this.handleModal} value='회원가입'/>
 
-            <Modal  isOpen={this.state.showModal} contentLabel="Minimal Modal Example" style={customStyles}>
+            <Modal  isOpen={this.state.showModal} contentLabel="회원가입" style={customStyles}>
               {/* 회원가입 모달 네브 */}
               <div className='border-bottom'>
                <input className='join-main-x' type ='button'  onClick={this.handleModal} />
@@ -150,12 +154,12 @@ class PopModal extends Component {
 
             {/* 가입완료 모달*/}
             <Modal  isOpen={this.state.showModal1} style={customStyles} >
-            <div className='border-bottom'>
+              <div className='border-bottom'>
                 <input className='join-main-x' type ='button'  onClick={this.handleModal1} />
                 <button type="button"  className="sub-btn">메일 확인하기</button>
               </div>
-              
-            <div className='join-main'>
+                
+              <div className='join-main'>
                 <div>인증 메일 발송!</div>
                   <div style={{ paddingTop: 30}}>가입하신 이메일로 인증 요청을 시도했어요.<br/><br/>발송 된 메일의 링크를 클리하시면 에픽로그의 가족이 된답니다.</div>
                   <div className="consent-btn">

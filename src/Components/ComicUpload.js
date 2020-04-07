@@ -4,6 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 
 import PopModal from './Join-mem'
+import LoginForm from './LoginForm'
 
 import RadioButtonsGroup from './sample';
 import StylingButton from './StylingButton';
@@ -15,7 +16,8 @@ import ImageUploaderJS from './ImageUploaderJS';
 
 const styles = theme => ({
   root: {
-    padding: theme.spacing(3)
+    padding: theme.spacing(3),
+
   }
 });
 
@@ -77,6 +79,7 @@ class MainContent extends Component {
               <article className='article b'>
                 <div id="preview-container" style={{padding: '0 20%'}} />
                 <PopModal/>
+                <LoginForm/>
               </article>
             </Grid>
 

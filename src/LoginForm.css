@@ -1,0 +1,92 @@
+@charset "UTF-8";
+
+
+.login-modal-top {
+    display: flex;
+}
+
+.login-modal-top h3 {
+    font-size: 18px;
+}
+.Logo {
+    width: 60px;
+}
+.login-txt {
+    color: #A49FBA;
+    text-align: center;
+    align-self: center;
+}
+
+.login-box {
+    padding: 15px;
+}
+
+
+.login-input input, .email-form input {
+    width: 100%;
+    height: 50px;;
+    border: 2px solid #A49FBA;
+    border-radius: 8px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+
+}
+.login-input input::placeholder, .email-form input::placeholder{
+    color: rgba(164, 159, 186, 0.5);
+}
+
+
+
+.login-lost{
+    color: #F1AD39;
+    cursor: pointer;
+    float: right;
+}
+.login-lost:hover{
+    text-decoration: underline;
+}
+.click-box {
+    border: none;
+}
+
+.login-box button, .send-email-btn {
+    border: none;
+    background: rgb(241, 173, 57, 0.8);
+    color: #fff;
+    border-radius: 50px;
+    width: -webkit-fill-available;
+    height: 38px;
+    margin: 2% 10%;
+    cursor: pointer;
+}   
+
+.login-box button:hover, .send-email-btn:hover {
+    background: #F1AD39;
+}
+
+.login-btn1 {
+    background: rgb(73, 173, 293, 0.8) !important;
+}
+.login-btn1:hover {
+    background: #49ADEF !important;
+}
+.border-line {
+    border: 2px solid #E9E9E9;
+    margin-top: 40px
+}
+
+.sns-btn1 {
+ background: rgb(228, 79, 70, 0.8) !important;
+}
+.sns-btn1:hover {
+    background: #E44F46 !important;
+   }
+   
+
+@media only screen and (min-width: 768px) {
+        
+}
+@media only screen and (min-width: 1000px) {
+
+
+} 

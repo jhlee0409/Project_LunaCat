@@ -1,0 +1,238 @@
+@charset "UTF-8";
+
+html{font-size:14px;}
+body{min-width:320px; transition: all 0.5s; }
+button{cursor: pointer;}
+.view-main {
+    padding: 15px;
+}
+.view-container {
+    border: 1px solid black;
+}
+
+/* 공통css------------------------------------------------------------- */
+.view-div {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.tugo div{
+    margin: 0 auto
+}
+
+p {
+    margin: 0;
+}
+
+.flex-content {
+    display: flex;
+    padding: 10px 0;
+}
+
+.flex-content div {
+    margin-right: auto;
+}
+.fb-more-btn {
+    text-align: center;
+}
+.fb-more-btn > button {
+    border: none;
+    background: none;
+    color: #A49FBA;
+}
+
+.react-btn {
+    display: flex;
+}
+.react-btn > button {
+    width: 97px;
+    height: 36px;
+    border: 2px solid rgb(241, 173, 57, 0.7);
+    border-radius: 50px;
+    background: none;
+    color: #F1AD39;
+    transition: all 0.2s;
+}
+.react-btn > button:hover {
+    border: 2px solid rgb(241, 173, 57);
+
+}
+
+/* 투고섹션---------------------------------------------------- */
+
+
+.tugo-top {
+    display: flex;
+}
+
+
+.follow-btn {
+    border: none;
+    background: none;
+    color: #707070;
+}
+
+.tugo-more-btn {
+    width: 20px;
+    height: 20px;
+    margin-left: auto;
+    background: url('../svg/more-btn-small.svg');
+    border: none;
+    transition: 0.2s;
+}
+
+.tugo-more-btn:hover {
+    background: url('../svg/more-btn-smallOn.svg');
+}
+.tugo-origin {
+    border: 1px solid black;
+}
+
+/* 번역섹션---------------------------------------------------- */
+
+/* 번역 btn 섹션---------------------------------------------------- */
+
+.translate-sub .trans-btn {
+    border: none;
+    width: 20px;
+    height: 20px;
+    
+    transition: all 0.25s ease;
+}
+
+.trans-btn > span {
+ padding-left: 20px;
+}
+.bookmark {
+    background: url('../svg/bookmark.svg') no-repeat;
+}
+.heart {
+    background: url('../svg/heart.svg') no-repeat;
+}
+.share {
+    background: url('../svg/share.svg') no-repeat;
+}
+.share:hover {
+    background: url('../svg/shareOn.svg') no-repeat;
+}
+.globe {
+    background: url('../svg/globe.svg') no-repeat;
+}
+
+.fb-div{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+}
+.fb-write {
+    width: calc(100% - 30px);
+}
+.fb-btn {
+    width: 20px;
+    height: 20px;
+    background: url('../svg/fb.svg');
+    border: none;
+}
+
+
+
+/* 스와이퍼------------------------------------------------------------ */
+.Swiper-container {
+    border: 1px solid black;
+    overflow: hidden;
+    position: relative;
+}
+.swiper-wrapper {
+    display: flex;
+}
+.swiper-div {
+    padding: 5px;
+}
+
+.swiper-button{
+    width: 59px;
+    height: 59px;
+    position: absolute;
+    top: 40%;
+    cursor: pointer;
+}
+.swiper-button.next{
+    background: url('../svg/swiper-btn-next.svg');
+    right: 0;
+}
+.swiper-button.prev{
+    background: url('../svg/swiper-btn-prev.svg');
+    left: 0;
+}
+
+@media only screen and (min-width: 768px) {
+        
+}
+
+
+@media only screen and (min-width: 960px) {
+
+    body {
+        font-size:16px;
+    }
+}
+
+.my-masonry-grid {
+    display: -webkit-box; /* Not needed if autoprefixing */
+    display: -ms-flexbox; /* Not needed if autoprefixing */
+    display: flex;
+    margin-left: -20px; /* gutter size offset */
+    width: auto;
+    padding-top: 10px;
+  }
+
+  .my-masonry-grid_column {
+    padding-left: 20px; /* gutter size */
+    background-clip: padding-box;
+  }
+
+.similar-slide {
+    border: 1px solid black;
+    padding: 10px;
+}
+.similar-title {
+    display: flex;
+    font-size: 14px;
+    justify-content: space-between;
+}
+.similar-slide img {
+    padding-top: 5px;
+}
+
+.similar-btn {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    width: 38px;
+    height: 38px;
+    background: url('../svg/more-btn.svg');
+    border: none;
+    transition: 0.2s;
+    transform: rotate( 90deg );
+}
+.similar-btn:hover {
+    background: url('../svg/more-btnOn.svg');
+    transform: rotate( 180deg );
+    
+}
+.similar-txt p {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* 라인수 */
+    -webkit-box-orient: vertical;
+    word-wrap:break-word;
+}
+
+
+  /* Style your items */
+  .my-masonry-grid_column img { /* change div to reference your elements you put in <Masonry> */
+    width: 100%;
+    height: 100%;
+  }

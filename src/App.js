@@ -4,9 +4,8 @@ import Popups from './Components/Popup'
 import StylingButton from './Components/StylingButton';
 import ComicUpload from './Components/ComicUpload';
 import IullustUpload from './Components/IullustUpload';
-import Grid from '@material-ui/core/Grid';
 import TopAlert from './Components/TopAlert';
-
+import Viewer from './Components/Viewer'
 
 import logo from './svg/logo.svg';
 import alertt from './svg/Off/alert.svg';
@@ -56,7 +55,7 @@ class App extends Component {
       showPopup3: false,  
       showPopup4: false,  
       open: false,
-      component: <ComicUpload/>,
+      component: <Viewer/>,
       num: 1,
       title: [
         {id: 2, name:'대화', content: 'dd'},
@@ -75,6 +74,10 @@ class App extends Component {
       this.setState({
         component: <IullustUpload/>
       })
+    } else if (name === 'Viewer') {
+       this.setState({
+         component: <Viewer/>
+       })
     }
 }  
   togglePopup = (i) => {
@@ -106,14 +109,15 @@ class App extends Component {
         <nav className='top'>
 
           <img className='Logo'src={logo} alt='로고'/>
-
-          <input className='serchBar' type="serch" placeholder="검색어를 입력하세요."/>
-          <StylingButton alt='검색' search background={search} backgroundH={searchOn}/>
-
+          <div className='search-bar'>
+            <input className='serchBar' type="serch" placeholder="검색어를 입력하세요."/>
+            <StylingButton alt='검색' search background={search} backgroundH={searchOn}/>
+          </div>
 
           <div className='Mode'>
             <StylingButton alt='코믹' onClick={() =>this.onChange('Comic')} primary background={ComicButton} backgroundH={ComicButtonOn}/>
             <StylingButton alt='일러스트' onClick={() =>this.onChange("Illust")} primary background={IllustButton} backgroundH={IllustButtonOn}/>
+            <button onClick={() => this.onChange('Viewer')}>뷰어</button>
           </div>    
 
 
