@@ -28,11 +28,10 @@ class Viewer extends Component {
             globeCount: 21,
             fbCount: 284,
             fbGroupMore: 5,
-
-            selected: false,
+            toggleIcon: require(`../svg/heart.svg`),
         }
         this.textChange=this.textChange.bind(this)
-        this.toggleChange=this.toggleChange.bind(this)
+        this.toggleBtn=this.toggleBtn.bind(this)
 
     }
 
@@ -44,11 +43,20 @@ class Viewer extends Component {
         }
     }
 
-    toggleChange = () => {
-        this.setState({
-            selected: !this.state.selected
-        })
+    toggleBtn = (name) => {
+        var icon = require(`../svg/${name}.svg`),
+            iconOn = require(`../svg/${name}On.svg`);
+        if (this.state.toggleIcon === icon) {
+            this.setState({
+                toggleIcon: iconOn
+            })
+        } else if (this.state.toggleIcon === iconOn) {
+            this.setState({
+                toggleIcon: icon
+            })
+        }
     }
+
 
     items = tileData.map(function(item, index) {
         return <div className='similar-slide' key={index}>
@@ -73,23 +81,18 @@ class Viewer extends Component {
 
     render(){
         const params = {
-            direction: 'horizontal',
             slidesPerView: 'auto',
-            freeMode: false,
+            freeMode: true,
             scrollbar: {
                 el: '.swiper-scrollbar',
-                position: 'absolute',
-                left: '2%',
-                bottom: 16,
-                zIndex: 50,
-                height: 8,
-                width: '96%',
+                width: 100,
+                
             },
             mousewheel: true,
             navigation: {
                 nextEl: '.swiper-button.next',
                 prevEl: '.swiper-button.prev'
-              },
+            },
         }
         return(
             <div className='view-main'>
@@ -148,15 +151,22 @@ class Viewer extends Component {
                         <div className='translate-sub'>
                             <button><span className='react-count'>{this.state.reactCount}</span>명이 반응하고 있어요</button>
                             <div className="flex-content">
-                                <div><button type='button' className='bookmark trans-btn'></button></div>
-                                <div><button type='button' className='heart trans-btn' ><span className='heart-count'>{this.state.heartCount}</span></button></div>
+                                <div><button type='button' className='bookmark trans-btn' ></button></div>
+                                <div><button type='button' className='trans-btn' onClick={()=> {this.toggleBtn('heart')}} >
+                                    <img className='heart' src={this.state.toggleIcon} alt='좋아요' />
+                                    
+                                    <span className='heart-count'>{this.state.heartCount}</span>
+                                    </button></div>
                                 <div><button type='button' className='share trans-btn'></button></div>
                                 <div><button type='button' className='globe trans-btn'><span className='globe-count'>{this.state.globeCount}</span></button></div>
                             </div>
                         </div>
 
                         <div className='feedback'>
-                            <p>피드백<span>{this.state.fbCount}</span>개</p>
+                            <div style={{display:'flex'}}>
+                                <img src={require('../svg/comment-icon.svg')} alt='코멘트'/>
+                                <p>피드백<span>{this.state.fbCount}</span>개</p>
+                            </div>
                             <div className='fb-div'>
                                 <input className='fb-write' placeholder='피드백하기'/> 
                                 <button type='button'className='fb-btn'></button>  
@@ -241,7 +251,7 @@ class Viewer extends Component {
                     <Grid item  md={8} xs={12}>
                         <div className='view-more'>
                             <h2>ABCD 작가 작품 </h2>
-                        <Swiper containerClass='Swiper-container' wrapperClass='swiper-wrapper' slideClass='swiper-div' watchOverflow='false' {...params}>
+                        <Swiper containerClass='Swiper-container' wrapperClass='swiper-wrapper' slideClass='swiper-div'  {...params}>
                             <div><img src={require('../svg/more-sample.svg')} alt='그림'/></div>
                             <div><img src={require('../svg/more-sample.svg')} alt='그림'/></div>
                             <div><img src={require('../svg/more-sample.svg')} alt='그림'/></div>

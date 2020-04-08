@@ -284,18 +284,21 @@ html, body, .app {
   .search-bar {
     display: flex;
     width: 100%;
-    height: 40px;
-    border: 1px solid black;
+    padding: 10px;
+    border: 2px solid #F7F7F7;
+    border-radius: 50px;
+    background: #F7F7F7 ;
   }
   .serchBar {
-    padding-left: 10px;
     border: none;
     width: calc(100% - 50px);
     margin-right: 10px;
+    background: #F7F7F7 ;
+
   }
   .search-bar > button {
     align-self: center;
-    
+    margin-left: 10px;
   }
   
   .option {
