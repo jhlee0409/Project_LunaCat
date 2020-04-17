@@ -3,6 +3,7 @@ import '../App.css';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 
+
 import PopModal from './Join-mem'
 import LoginForm from './LoginForm'
 
@@ -13,11 +14,13 @@ import P_post from '../svg/Off/P_post.svg';
 import P_postOn from '../svg/On/P_postOn.svg';
 
 import ImageUploaderJS from './ImageUploaderJS';
+import {ImageUpload, Preview} from './asdasdsad';
+
 
 const styles = theme => ({
   root: {
     padding: theme.spacing(3),
-
+    paddingTop: 80,
   }
 });
 
@@ -84,10 +87,10 @@ class MainContent extends Component {
             </Grid>
 
             <Grid item  md={4} xs={12}>
-            <article  className='article a'>
+              <article  className='article a'>
                 <label >코믹 드래그나 클릭해서 업로드하세요.</label>        
                 <div className='Upload'>
-                  <ImageUploaderJS/>
+                  <ImageUpload />           
                 </div >
               </article >
 

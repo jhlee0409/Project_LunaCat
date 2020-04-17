@@ -1,0 +1,159 @@
+
+.priview-container:nth-child(1){
+    display: none;
+}
+.priview-container:nth-child(2){
+    display: blcok;
+}
+.btn-center {
+    position: relative;
+}
+.main-container {
+    position: relative;
+    height: 230px;
+    overflow: auto;
+}
+.dzu-dropzone {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 106px;
+    min-height: 106px;
+    overflow: hidden;
+    background: url('../svg/UploadButton.svg');
+    border: none;
+    transition: all 0.2s;
+}
+.dzu-inputLabelWithFiles {
+    opacity: 0;
+    margin: 0;
+    width: 106px;
+    min-height: 106px;
+}
+.dzu-dropzone:hover{
+
+    opacity: 0.6;
+}
+
+.priview-container {
+    display: flex;
+}
+.dzu-previewContainer {
+    position: relative;
+    width: 150px;
+    height: 200px;
+    border: 2px solid #A49FBA;
+    border-radius: 10px;
+    padding: 3px 10px;
+    margin: 5px 5px 0 0;
+    z-index: 0;
+
+}
+.dzu-previewImage {
+    max-width: 130px;
+    max-height: 180px;
+}
+.dzu-previewStatusContainer {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    
+}
+.dzu-previewButton {
+    width: 36px;
+    height: 36px;
+    background: url('../svg/deleteButton.svg');
+    transition: all 0.2s;
+}
+.dzu-previewButton:hover {
+    opacity: 0.5;
+}
+
+
+@media only screen and (min-width: 768px) {
+        
+}
+
+@media only screen and (min-width: 960px) {
+
+    .priview-container:nth-child(1){
+        display: flex;
+    }
+    .priview-container:nth-child(2){
+        display: none;
+    }
+    .btn-center {
+        position: relative;
+    }
+    .main-container {
+        position: relative;
+        height: 680px;
+        margin: 10px 0 20px 0;
+        overflow: auto;
+    }
+    .dzu-dropzone {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        width: 106px;
+        min-height: 106px;
+        overflow: hidden;
+        background: url('../svg/UploadButton.svg');
+        border: none;
+        transition: all 0.2s;
+    }
+    .dzu-inputLabelWithFiles {
+        opacity: 0;
+        margin: 0;
+        width: 106px;
+        min-height: 106px;
+    }
+    .dzu-dropzone:hover{
+
+        opacity: 0.6;
+    }
+
+    .dzu-previewContainer {
+        position: relative;
+        width: 150px;
+        height: 200px;
+        border: 2px solid #A49FBA;
+        border-radius: 10px;
+        padding: 3px 10px;
+        margin: 5px 5px 0 0;
+        z-index: 0;
+
+    }
+    .dzu-previewImage {
+        max-width: 130px;
+        max-height: 180px;
+    }
+    .dzu-previewStatusContainer {
+        position: absolute;
+        top: 3px;
+        right: 3px;
+        
+    }
+    .dzu-previewButton {
+        width: 36px;
+        height: 36px;
+        background: url('../svg/deleteButton.svg');
+        transition: all 0.2s;
+    }
+    .dzu-previewButton:hover {
+        opacity: 0.5;
+    }
+
+
+    /* 그리드 --------------------------------------------------------------- */
+    .Upload-grid {
+        display: flex;
+        width: auto;
+        margin: 0 auto;
+    }
+    .Upload-grid-column {
+        background-clip: padding-box;
+    }
+}

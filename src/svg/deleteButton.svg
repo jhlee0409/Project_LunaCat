@@ -1,22 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36" height="36" viewBox="0 0 36 36">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="41" height="41" viewBox="0 0 41 41">
   <defs>
-    <filter id="패스_2229" x="0" y="0" width="36" height="36" filterUnits="userSpaceOnUse">
+    <filter id="타원_182" x="0" y="0" width="41" height="41" filterUnits="userSpaceOnUse">
       <feOffset dy="4" input="SourceAlpha"/>
       <feGaussianBlur stdDeviation="2.5" result="blur"/>
-      <feFlood flood-opacity="0.2"/>
+      <feFlood flood-opacity="0.329"/>
       <feComposite operator="in" in2="blur"/>
       <feComposite in="SourceGraphic"/>
     </filter>
   </defs>
-  <g id="그룹_3819" data-name="그룹 3819" transform="translate(-1240.5 -600.5)" opacity="0.8">
-    <g transform="matrix(1, 0, 0, 1, 1240.5, 600.5)" filter="url(#패스_2229)">
-      <path id="패스_2229-2" data-name="패스 2229" d="M10.5,0A10.5,10.5,0,1,1,0,10.5,10.5,10.5,0,0,1,10.5,0Z" transform="translate(7.5 3.5)" fill="#222" opacity="0.5"/>
+  <g id="그룹_4569" data-name="그룹 4569" transform="translate(-110.5 -116.5)">
+    <g transform="matrix(1, 0, 0, 1, 110.5, 116.5)" filter="url(#타원_182)">
+      <circle id="타원_182-2" data-name="타원 182" cx="13" cy="13" r="13" transform="translate(7.5 3.5)" fill="#222" opacity="0.6"/>
     </g>
-    <g id="Icon_Add_Filled" data-name="Icon / Add / Filled" transform="translate(1258.364 608) rotate(45)">
-      <g id="_" data-name="+" transform="translate(0 0)" fill="#fff" stroke-linecap="round">
-        <path d="M 4.64247989654541 8.5 L 4.357230186462402 8.5 L 4.357230186462402 5.1427001953125 L 4.357230186462402 4.6427001953125 L 3.857229948043823 4.6427001953125 L 0.5 4.6427001953125 L 0.5 4.357260227203369 L 3.857229948043823 4.357260227203369 L 4.357230186462402 4.357260227203369 L 4.357230186462402 3.85725998878479 L 4.357230186462402 0.5 L 4.64247989654541 0.5 L 4.64247989654541 3.85725998878479 L 4.64247989654541 4.357260227203369 L 5.14247989654541 4.357260227203369 L 8.5 4.357260227203369 L 8.5 4.6427001953125 L 5.14247989654541 4.6427001953125 L 4.64247989654541 4.6427001953125 L 4.64247989654541 5.1427001953125 L 4.64247989654541 8.5 Z" stroke="none"/>
-        <path d="M 5.14247989654541 9 L 3.857229948043823 9 L 3.857229948043823 5.1427001953125 L 0 5.1427001953125 L 0 3.85725998878479 L 3.857229948043823 3.85725998878479 L 3.857229948043823 0 L 5.14247989654541 0 L 5.14247989654541 3.85725998878479 L 9 3.85725998878479 L 9 5.1427001953125 L 5.14247989654541 5.1427001953125 L 5.14247989654541 9 Z" stroke="none" fill="#fff"/>
-      </g>
+    <g id="그룹_4424" data-name="그룹 4424" transform="translate(127 129)" opacity="0.8">
+      <line id="선_171" data-name="선 171" x1="8" y2="8" fill="none" stroke="#fff" stroke-width="2"/>
+      <line id="선_172" data-name="선 172" x1="8" y1="8" fill="none" stroke="#fff" stroke-width="2"/>
     </g>
   </g>
 </svg>

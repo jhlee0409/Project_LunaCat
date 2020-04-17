@@ -1,11 +1,35 @@
 /* 네브 */
 .top:nth-child(1) {
-  display: block;
+  display: flex;
 }
 .top:nth-child(2) {
   display: none;
 }
 
+.top {
+  justify-content: space-between;
+  position: fixed;
+  background: #fff;
+  z-index: 5;
+  width: 100%;
+  height: 54px;
+  box-shadow: 0px 2px 3px #E9E9E9 ;
+  padding: 3px 0;
+  align-items: center;
+  
+}
+
+.nav-more-btn {
+  width: 38px;
+  height: 38px;
+  background: url('./svg/more-btn-opa0.svg');
+  border: none;
+  margin-right: 20px;
+  transition: all 0.2s;
+}
+.nav-more-btn:hover {
+  background: url('./svg/more-btnOn.svg');
+}
 /* 메인 -----------------------------------------------------------------------------------------------------------------*/
 .main {
   display: flex;
@@ -15,6 +39,7 @@
 .article {
   border: 1px solid black;
   margin: 0 15px;
+  background: #fff;
   
 
 }
@@ -22,8 +47,6 @@
 /* 업로드 섹션 -----------------------------------------------------------------------------------------------------------------*/
 .article.a {
   text-align: center;
-  min-height: 630px;
-  
 }
 .Upload {
   height: 30%;
@@ -49,7 +72,7 @@ font-weight: 500;
   top: 40%;
   transition: 0.3s;
   position: absolute;
-  }
+}
 
 .ImageUploaderButton:hover {
   background: url('./svg/UploadButton.svg') !important;
@@ -182,8 +205,8 @@ html, body, .app {
   margin: 0;
   padding: 0;
   position: relative;
-  width: 100%;
-  height: 100vh;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 .popup {
   z-index: 2;
@@ -247,11 +270,69 @@ html, body, .app {
   cursor: pointer;
 }
 
+/* lnb--------------------------------------------------------- */
+
+.lnb {
+  position: fixed;
+  bottom: 0;
+  background: #fff;
+  width: 100%;
+}
+
+.lnb-inner {
+  margin: 0 auto;
+  width: 100%;
+  height: 52px;
+}
+.lnb-wrap {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 12.5px 0;
+}
+/* .lnb-wrap > button {
+  float: left;
+  width: calc(100% / 5);
+  height: 52px;
+  padding: 8px 0;
+} */
+.lnb-wrap > button {
+  border: none;
+
+}
+.lnb-alert{
+  background: url('./svg/lnb-alert.svg') no-repeat top left;
+  width: 22.125px;
+  height: 25px;
+  
+  
+}
+.lnb-chat{
+  background: url('./svg/lnb-chat.svg') no-repeat top left;
+  width: 26.032px;
+  height: 23px;
+}
+.lnb-edit{
+  background: url('./svg/lnb-edit.svg') no-repeat top left;
+  width: 25.87px;
+  height: 23px;
+}
+.lnb-follow{
+  background: url('./svg/lnb-follow.svg') no-repeat top left;
+  width: 23.999px;
+  height: 22px;
+}
+.lnb-more{
+  background: url('./svg/lnb-more.svg') no-repeat top left;
+  width: 23px;
+  height: 23px;
+}
+
 
 @media only screen and (min-width: 960px){
 
   html, body, #page-content {
     overflow: auto;
+    z-index: 0;
   }
   .top:nth-child(1) {
     display: none;
@@ -259,17 +340,22 @@ html, body, .app {
   .top:nth-child(2) {
     display: flex
   }
-  
+  .lnb{
+    display: none;
+  }
   .Logo {
     padding: 10px 20px 0 20px;
     
   }
   .top {
     display: flex;
+    position: fixed;
+    background: #fff;
+    z-index: 2;
     width: 100%;
     height: 54px;
     box-shadow: 0px 2px 3px #E9E9E9 ;
-    padding: 15px 0;
+    padding: 3px 0;
     align-items: center;
     
   }

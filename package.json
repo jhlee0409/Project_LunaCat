@@ -21,6 +21,8 @@
     "react-dnd": "^10.0.2",
     "react-dnd-html5-backend": "^10.0.2",
     "react-dom": "^16.13.0",
+    "react-dropzone": "^10.2.2",
+    "react-dropzone-uploader": "^2.11.0",
     "react-id-swiper": "^3.0.0",
     "react-images-upload": "^1.2.8",
     "react-masonry-css": "^1.0.14",

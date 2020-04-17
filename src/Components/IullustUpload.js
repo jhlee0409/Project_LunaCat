@@ -8,7 +8,8 @@ import ImageUploaderJS from '../Components/ImageUploaderJS';
 
 const styles = theme => ({
   root: {
-    padding: theme.spacing(3)
+    padding: theme.spacing(3),
+    paddingTop: 80,
   }
 });
 

@@ -1,24 +1,28 @@
 import React, { Component } from 'react'
 import '../css/Viewer.css'
-import Grid from '@material-ui/core/Grid';
 import Swiper from 'react-id-swiper';
 import tileData from './tileData';
+import fbData from './fbData';
 
 import Masonry from 'react-masonry-css'
 
-  const breakpointColumnsObj = {
+const breakpointColumnsObj = {
     default: 5,
     1600: 4,
     1300: 3,
     960: 3,
     800: 2,
-  };
+};
+
+
+
 
 class Viewer extends Component {
     constructor(props) {
         super(props)
         this.state= {
-            text: '팔로우',
+            clicked: false,
+            color: '#A49FBA',
             tugoName: 'ABCD',
             tugoDatetime: '2020-03-31',
             transName: 'ABCD',
@@ -28,32 +32,41 @@ class Viewer extends Component {
             globeCount: 21,
             fbCount: 284,
             fbGroupMore: 5,
-            toggleIcon: require(`../svg/heart.svg`),
+            heart: require(`../svg/heart.svg`),
+            globe: require(`../svg/globe.svg`),
+            bookmark: require(`../svg/bookmark.svg`),
+            commentIcon: require(`../svg/comment-icon.svg`),
+            fbs: fbData
         }
-        this.textChange=this.textChange.bind(this)
         this.toggleBtn=this.toggleBtn.bind(this)
-
+        this.colorChange=this.colorChange.bind(this)
+        this.toggle=this.toggle.bind(this)
     }
 
-    textChange = () => {
-        if (this.state.text === '팔로우') {
-            this.setState({text: '팔로잉'})
-        } else {
-            this.setState({text: '팔로우'})
+    colorChange = () => {
+        var color1 = '#A49FBA',
+            color2 = '#F1AD39'
+        if (this.state.clicked === true) {
+            this.setState({color: color1})
+        } else if (this.state.clicked === false) {
+            this.setState({color: color2})
         }
     }
+    toggle = () => {
+        this.setState({clicked: !this.state.clicked})
+    }
 
-    toggleBtn = (name) => {
+    toggleBtn = (e,name) => {
         var icon = require(`../svg/${name}.svg`),
             iconOn = require(`../svg/${name}On.svg`);
-        if (this.state.toggleIcon === icon) {
-            this.setState({
-                toggleIcon: iconOn
-            })
-        } else if (this.state.toggleIcon === iconOn) {
-            this.setState({
-                toggleIcon: icon
-            })
+        if (name === 'heart') {
+            if (this.state.heart === icon) {this.setState({heart: iconOn})} else if (this.state.heart === iconOn) {this.setState({heart: icon})}
+        } else if (name === 'globe') {
+            if (this.state.globe === icon) {this.setState({globe: iconOn})} else if (this.state.globe === iconOn) {this.setState({globe: icon})}
+        } else if (name === 'bookmark') {
+            if (this.state.bookmark === icon) {this.setState({bookmark: iconOn})} else if (this.state.bookmark === iconOn) {this.setState({bookmark: icon})}
+        } else if (name === 'comment-icon') {
+            if (this.state.commentIcon === icon) {this.setState({commentIcon: iconOn})} else if (this.state.commentIcon === iconOn) {this.setState({commentIcon: icon})}
         }
     }
 
@@ -61,32 +74,39 @@ class Viewer extends Component {
     items = tileData.map(function(item, index) {
         return <div className='similar-slide' key={index}>
             <div className='similar-title'>
+                <img src={require(`../svg/translate-icon.svg`)} alt='번역아이콘'/>
                 <p>{item.title}님이 번역</p>
                 <span>2019-01-30</span>
             </div>
             <div style={{position:'relative'}}>
-                <img src={item.img} alt={item.title}/>
+                <img className='similar-img' src={item.img} alt={item.title}/>
                 <button className='similar-btn' type='button'></button>
             </div>
             
             <div className='similar-title' >
+                <img src={require(`../svg/tugo-icon.svg`)} alt='투고아이콘'/>
                 <p>{item.title}님이 투고</p>
                 <span>1시간</span>    
             </div>
             <div className='similar-txt'>
-                <p>lorem safh q;wjklhfjqw;hf;a sahjfj;lqwhfuwh ashj fdl;wqhfln kas;jndikwsahjd iqwohdjklsan;</p>
+                <p>loremwegwegwegew ewgwegwegwegwegwegsafh q;wjkd iqwohdjklsan;</p>
             </div>
             </div>
         })
+    
+ 
 
     render(){
+        let boxclass = ['fb-comment'];
+        if (this.state.clicked){
+            boxclass.push('blue')
+        }
+
         const params = {
             slidesPerView: 'auto',
             freeMode: true,
             scrollbar: {
                 el: '.swiper-scrollbar',
-                width: 100,
-                
             },
             mousewheel: true,
             navigation: {
@@ -96,90 +116,107 @@ class Viewer extends Component {
         }
         return(
             <div className='view-main'>
-                <Grid container direction="row-reverse" spacing={1}>
-                    <Grid item  md={4} xs={12}>
+                    <div className='view-container-1' style={{height:200}}>이미지 입장</div>
+                <div className='divide-section-1'>
+                    <div >
                         <div className='view-div'>
-                            <span>{this.state.tugoName}</span>님이 투고했어요
+                            <div className='tugo-who'>
+                                <img src={require(`../svg/tugo-icon.svg`)} alt='투고아이콘'/>
+                                <span>{this.state.tugoName}</span>님이 투고했어요
+                            </div>
                             <div className='tugo-top'>
-                                이미지
+                                <img src={require('../svg/profile-img.svg')} alt='샘플이미지'/>
+
                                 <div className='tugo-profile'>
-                                    <p>아이디s</p> 
-                                    <p>@아이디</p>
+                                    <p className='profile-id'>아이디s</p> 
+                                    <p className='profile-email'>@아이디</p>
                                 </div>
                                 <div className='tugo-sub'>
-                                    <button type='button' className='follow-btn' onClick={this.textChange}>{this.state.text}</button>
+                                    <div className='dot'></div>
+                                    <button type='button' className='follow-btn' style={{color: this.state.color}} onClick={()=> {this.setState({clicked: !this.state.clicked}); this.colorChange()}}>{this.state.clicked? '팔로잉':'팔로우'}</button>
                                     <span className='tugo-datetime'>{this.state.tugoDatetime}</span>
                                 </div>
                                 <button type='button' className='tugo-more-btn'></button>
                             </div>
                             <div>
-                                <p className='tugo-title'>제목</p>
-                                <div className='tugo-origin'>
-                                    원본이미지
+                                <p className='tugo-title'>안녕하세요 제목이에요</p>
+                                <div className='tugo-content'>
+                       
+                                        <img className='tugo-iamge-origin' src={require(`../svg/1a684c4d7a31c3419e6ddb5bc2c71194.svg`)} alt='샘플이미지' />
+                              
                                 </div>
                             </div>
                         </div>
-
                         <div className='view-div'>
-                        <span>{this.state.transName}</span>님이 투고했어요
+                            <div className='translate-who'>
+                                <img src={require(`../svg/translate-icon.svg`)} alt='번역아이콘'/>
+                                <span >{this.state.transName}</span>님이 번역했어요
+                            </div>
                             <div className='tugo-top'>
-                                이미지
-                                <div className='tugo-profile'>
-                                    <p>아이디s</p> 
-                                    <p>@아이디</p>
+                                <img src={require('../svg/profile-img.svg')} alt='샘플이미지'/>
+
+                                <div className='translate-profile'>
+                                    <p className='profile-id'>아이디s</p> 
+                                    <p className='profile-email'>@아이디</p>
                                 </div>
-                                <div className='tugo-sub'>
+                                <div className='translate-sub'>
                                     <button type='button' className='follow-btn' onClick={this.textChange}>{this.state.text}</button>
-                                    <span className='tugo-datetime'>{this.state.transDatetime}</span>
+                                    <span className='translate-datetime'>{this.state.transDatetime}</span>
                                 </div>
                                 <button type='button' className='tugo-more-btn'></button>
                             </div>
                             <div>
                                 <p className='tugo-title'>제목</p>
-                                <div className='tugo-origin'>
+                                <div className='tugo-content'>
                                     본글
                                 </div>
                             </div>
                         </div>
-                    </Grid>
-                    <Grid item  md={8} xs={12}>
-                        <div className='view-container'>
-                            이미지 
-                        </div>
-                    </Grid>
-                    <Grid item  md={4} xs={12}>
-                        <div className='translate-sub'>
-                            <button><span className='react-count'>{this.state.reactCount}</span>명이 반응하고 있어요</button>
-                            <div className="flex-content">
-                                <div><button type='button' className='bookmark trans-btn' ></button></div>
-                                <div><button type='button' className='trans-btn' onClick={()=> {this.toggleBtn('heart')}} >
-                                    <img className='heart' src={this.state.toggleIcon} alt='좋아요' />
-                                    
-                                    <span className='heart-count'>{this.state.heartCount}</span>
-                                    </button></div>
-                                <div><button type='button' className='share trans-btn'></button></div>
-                                <div><button type='button' className='globe trans-btn'><span className='globe-count'>{this.state.globeCount}</span></button></div>
+                    </div>
+                    <div>
+                        <div className='translate-div'>
+                            <div className='flex-content fb-more-btn'>
+                                <button className='react-btn'>
+                                <img src={require(`../svg/react-icon.svg`)} alt='반응'/>
+                                <span className='react-count'>{this.state.reactCount}</span>명이 반응하고 있어요
+                                </button>
                             </div>
-                        </div>
 
-                        <div className='feedback'>
-                            <div style={{display:'flex'}}>
-                                <img src={require('../svg/comment-icon.svg')} alt='코멘트'/>
-                                <p>피드백<span>{this.state.fbCount}</span>개</p>
+                            <div className="flex-content">
+                                <div>
+                                    <img className='heart' src={this.state.bookmark} alt='좋아요' onClick={()=> {this.toggleBtn('bookmark')}}/>
+                                </div>
+                                <div style={{display:'flex'}}>
+                                    <img className='heart' src={this.state.heart} alt='좋아요' onClick={()=> {this.toggleBtn('heart')}}/>
+                                    <span className='heart-count'>{this.state.heartCount}</span>
+                                </div>
+                                <div><button type='button' className='share trans-btn'></button></div>
+                                <div style={{display:'flex'}}>
+                                    <img className='globe' src={this.state.globe} alt='글로벌' onClick={()=> {this.toggleBtn('globe')}} />
+                                    <span className='globe-count'>{this.state.globeCount}</span>
+                                </div>
                             </div>
-                            <div className='fb-div'>
-                                <input className='fb-write' placeholder='피드백하기'/> 
-                                <button type='button'className='fb-btn'></button>  
+                        </div>
+                        <div className='feedback'>
+                            <div style={{background:'#fff', margin:'3px 0'}}>
+                                <div style={{display:'flex', padding:10,}}>
+                                    <img src={require('../svg/comment-icon.svg')} alt='코멘트'/>
+                                    <p>피드백<span>{this.state.fbCount}</span>개</p>
+                                </div>
+                                <div className='fb-div'>
+                                    <input className='fb-write' placeholder='피드백 하기...'/> 
+                                    <button type='button'className='fb-btn'></button>  
+                                </div>
                             </div>
                             
                             <div className='fb-group'>
                                 <div className='view-div'>
-                                    <span>ABCD</span>님이 투고했어요
                                     <div className='tugo-top'>
-                                        이미지
+                                        <img src={require('../svg/profile-img.svg')} alt='샘플이미지'/>
+
                                         <div className='tugo-profile'>
-                                            <p>아이디s</p> 
-                                            <p>@아이디</p>
+                                            <p className='profile-id'>아이디s</p> 
+                                            <p className='profile-email'>@아이디</p>
                                         </div>
                                         <div className='tugo-sub'>
                                             <button type='button' className='follow-btn' onClick={this.textChange}>{this.state.text}</button>
@@ -187,20 +224,31 @@ class Viewer extends Component {
                                         </div>
                                         <button type='button' className='tugo-more-btn'></button>
                                     </div>
-                                    <div>
-                                        <p className='tugo-title'>제목</p>
-                                        <div className='tugo-origin'>
-                                            원본이미지
+                                    <div className='fb-txt'>
+                                    agasgasjgljkasjgklasjgalsk;gjaslkghaslghasl'ghasg'jhasgashgj'ashgasjgasgasgagal'sjkg;'askgl'as;kgas'l;kgsal';gkasl;gksa';lkg;''
+                                    asgas;lgasg
+                                    asgasasgasgasgdshg;jsdhgdshgds gldsjh ldsg lksdg lsd hgl
+                                    </div>
+                                    <div className='fb-react-btn'>
+                                        <div>
+                                            <img className='fb-comment' src={this.state.commentIcon} alt='코멘트' onClick={(e)=> {this.toggleBtn(e,'comment-icon'); this.toggle()} }/>
+                                            <span className={boxclass.join(' ')}>{this.state.clicked ? '123' : '124'}</span>
                                         </div>
+                                        <div>
+                                            <img className='fb-heart'src={this.state.heart} alt='좋아요' onClick={(e)=> {this.toggleBtn(e,'heart')}}/>
+                                            <span>123</span>
+                                        </div>
+
+                                        <button type='button'>피드백 하기</button>
                                     </div>
                                 </div>
                                 <div className='view-div'>
-                                    <span>ABCD</span>님이 투고했어요
                                     <div className='tugo-top'>
-                                        이미지
+                                        <img src={require('../svg/profile-img.svg')} alt='샘플이미지'/>
+
                                         <div className='tugo-profile'>
-                                            <p>아이디s</p> 
-                                            <p>@아이디</p>
+                                            <p className='profile-id'>아이디s</p> 
+                                            <p className='profile-email'>@아이디</p>
                                         </div>
                                         <div className='tugo-sub'>
                                             <button type='button' className='follow-btn' onClick={this.textChange}>{this.state.text}</button>
@@ -208,11 +256,22 @@ class Viewer extends Component {
                                         </div>
                                         <button type='button' className='tugo-more-btn'></button>
                                     </div>
-                                    <div>
-                                        <p className='tugo-title'>제목</p>
-                                        <div className='tugo-origin'>
-                                            원본이미지
+                                    <div className='fb-txt'>
+                                    agasgasjgljkasjgklasjgalsk;gjaslkghaslghasl'ghasg'jhasgashgj'ashgasjgasgasgagal'sjkg;'askgl'as;kgas'l;kgsal';gkasl;gksa';lkg;''
+                                    asgas;lgasg
+                                    asgasasgasgasgdshg;jsdhgdshgds gldsjh ldsg lksdg lsd hgl
+                                    </div>
+                                    <div className='fb-react-btn'>
+                                        <div>
+                                            <img className='fb-comment'src={this.state.commentIcon} alt='코멘트' onClick={(e)=> {this.toggleBtn(e,'comment-icon')}}/>
+                                            <span>123</span>
                                         </div>
+                                        <div>
+                                            <img className='fb-heart'src={this.state.heart} alt='좋아요' onClick={(e)=> {this.toggleBtn(e,'heart')}}/>
+                                            <span>123</span>
+                                        </div>
+
+                                        <button type='button'>피드백 하기</button>
                                     </div>
                                 </div>
                             </div>
@@ -220,37 +279,49 @@ class Viewer extends Component {
                                 <button><span>{this.state.fbGroupMore}</span>개의 피드백 그룹 </button>
                             </div>
                             <div className='fb-personal'>
-                                <div className='view-div'>
-                                    <div className='tugo-top'>
-                                        이미지
-                                        <div className='tugo-profile'>
-                                            <p>아이디s</p> 
-                                            <p>@아이디</p>
+                                {this.state.fbs.map((item, index, toggleBtn) => {
+                                    return (
+                                    <div className='view-div' key={index}>
+                                        <div className='tugo-top'>
+                                            <img src={require('../svg/profile-img.svg')} alt='샘플이미지'/>
+                                            <div className='tugo-profile'>
+                                                <p className='profile-id'>{item.id}</p> 
+                                                <p className='profile-email'>{item.email}</p>
+                                            </div>
+                                            <div className='tugo-sub'>
+                                                <button type='button' className='follow-btn' ></button>
+                                                <span className='tugo-datetime'>{item.datetime}</span>
+                                            </div>
+                                            <button type='button' className='tugo-more-btn'></button>
                                         </div>
-                                        <div className='tugo-sub'>
-                                            <button type='button' className='follow-btn' onClick={this.textChange}>{this.state.text}</button>
-                                            <span className='tugo-datetime'>2020-03-31</span>
+                                        <div className='fb-txt'>
+                                            {item.content}
                                         </div>
-                                        <button type='button' className='tugo-more-btn'></button>
+                                        <div className='fb-react-btn'>
+                                            <div>
+                                                <img className='fb-comment'src={item.commentIcon} alt='코멘트' onClick={(e)=> this.toggleBtn(e,item.btn1)}/>
+                                                <span>{item.commentCount}</span>
+                                            </div>
+                                            <div>
+                                                <img className='fb-heart'src={item.heart} alt='좋아요' onClick={(e)=> this.toggleBtn(e,item.btn2)}/>
+                                                <span>{item.heartCount}</span>
+                                            </div>
+                                            <button type='button'>피드백 하기</button>
+                                        </div>
                                     </div>
-                                    <div>
-                                        test testtesttesttesttesttesttest
-                                    </div>
-                                    <div className='react-btn'>
-                                        <div>댓글</div>
-                                        <div>좋아요</div>
-                                        <button type='button'>피드백 하기</button>
-                                    </div>
-                                </div>
+                                        )
+                                })}
                             </div>
                             <div className='fb-more-btn'>
                                 <button>더 많은 피드백 보기</button>
                             </div>
                         </div>
-                    </Grid>
-                    <Grid item  md={8} xs={12}>
-                        <div className='view-more'>
-                            <h2>ABCD 작가 작품 </h2>
+                    </div>
+                </div>    
+                <div className='divide-section-2'> 
+                    <div className='view-container-2' style={{height:200}}>이미지 입장</div>
+                    <div className='view-more'>
+                        <h2>ABCD 작가 작품 </h2>
                         <Swiper containerClass='Swiper-container' wrapperClass='swiper-wrapper' slideClass='swiper-div'  {...params}>
                             <div><img src={require('../svg/more-sample.svg')} alt='그림'/></div>
                             <div><img src={require('../svg/more-sample.svg')} alt='그림'/></div>
@@ -261,18 +332,17 @@ class Viewer extends Component {
                             <div><img src={require('../svg/more-sample.svg')} alt='그림'/></div>
                             <div><img src={require('../svg/more-sample.svg')} alt='그림'/></div>
                             <div><img src={require('../svg/more-sample.svg')} alt='그림'/></div>
-                            <div><img src={require('../svg/more-sample.svg')} alt='그림'/></div>
                         </Swiper>
-                        </div>
-
-                        <div className='similar-view-more'>
+                    </div>
+                    <div className='similar-view-more'>
                             <h2>비슷한 작품 </h2>
+                            <div className='border-line'></div>
+
                             <Masonry  breakpointCols={breakpointColumnsObj} className='my-masonry-grid' columnClassName='my-masonry-grid_column'>
                                 {this.items}
                             </Masonry>                            
                         </div>
-                    </Grid>
-                </Grid>
+                </div>
             </div>
         )
     }

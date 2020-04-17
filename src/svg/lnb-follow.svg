@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="23.999" height="22" viewBox="0 0 23.999 22">
+  <g id="그룹_4870" data-name="그룹 4870" transform="translate(-998 11937.203)" opacity="0.8">
+    <g id="타원_185" data-name="타원 185" transform="translate(1009.999 -11937.203)" fill="#fff" stroke="#f1ad39" stroke-width="2">
+      <circle cx="5" cy="5" r="5" stroke="none"/>
+      <circle cx="5" cy="5" r="4" fill="none"/>
+    </g>
+    <g id="타원_186" data-name="타원 186" transform="translate(1000 -11937.203)" fill="#fff" stroke="#f1ad39" stroke-width="2">
+      <circle cx="5" cy="5" r="5" stroke="none"/>
+      <circle cx="5" cy="5" r="4" fill="none"/>
+    </g>
+    <g id="사각형_1527" data-name="사각형 1527" transform="translate(1007.999 -11928.816)" fill="#fff" stroke="#f1ad39" stroke-width="2">
+      <path d="M7,0H7a7,7,0,0,1,7,7v6a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V7A7,7,0,0,1,7,0Z" stroke="none"/>
+      <path d="M7,1H7a6,6,0,0,1,6,6v4.667a.333.333,0,0,1-.333.333H1.333A.333.333,0,0,1,1,11.667V7A6,6,0,0,1,7,1Z" fill="none"/>
+    </g>
+    <g id="사각형_1528" data-name="사각형 1528" transform="translate(998 -11928.816)" fill="#fff" stroke="#f1ad39" stroke-width="2">
+      <path d="M7,0H7a7,7,0,0,1,7,7v6a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V7A7,7,0,0,1,7,0Z" stroke="none"/>
+      <path d="M7,1H7a6,6,0,0,1,6,6v4.667a.333.333,0,0,1-.333.333H1.333A.333.333,0,0,1,1,11.667V7A6,6,0,0,1,7,1Z" fill="none"/>
+    </g>
+    <g id="타원_57" data-name="타원 57" transform="translate(1005 -11937.203)" fill="#fff" stroke="#f1ad39" stroke-width="2">
+      <circle cx="5" cy="5" r="5" stroke="none"/>
+      <circle cx="5" cy="5" r="4" fill="none"/>
+    </g>
+    <g id="사각형_278" data-name="사각형 278" transform="translate(1003 -11928.203)" fill="#fff" stroke="#f1ad39" stroke-width="2">
+      <path d="M7,0H7a7,7,0,0,1,7,7v6a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V7A7,7,0,0,1,7,0Z" stroke="none"/>
+      <path d="M7,1H7a6,6,0,0,1,6,6v4.667a.333.333,0,0,1-.333.333H1.333A.333.333,0,0,1,1,11.667V7A6,6,0,0,1,7,1Z" fill="none"/>
+    </g>
+  </g>
+</svg>
