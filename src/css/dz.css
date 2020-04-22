@@ -139,14 +139,22 @@
     .dzu-previewButton {
         width: 36px;
         height: 36px;
-        background: url('../svg/deleteButton.svg');
         transition: all 0.2s;
     }
     .dzu-previewButton:hover {
         opacity: 0.5;
     }
 
-
+    .remove{
+        
+        background: url('../svg/deleteButton.svg');
+    }
+    .cancel{
+        background: url('../png/stop.png');
+    }
+    .restart{
+        background: url('../png/start.png');
+    }
     /* 그리드 --------------------------------------------------------------- */
     .Upload-grid {
         display: flex;

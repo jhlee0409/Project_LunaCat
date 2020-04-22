@@ -1,6 +1,8 @@
 @charset "UTF-8";
 
-
+.login-width {
+    width: -webkit-fill-available;
+}
 .login-modal-top {
     display: flex;
 }
@@ -88,5 +90,8 @@
 }
 @media only screen and (min-width: 1000px) {
 
+    .login-width {
+        width: 360px;
+    }
 
 } 

@@ -5,6 +5,8 @@ import '../Join-mem.css'
 
 const customStyles = {
     content : {
+        background: '#fff',
+        outline: 'none',
         margin: 'auto',
         padding: '54px 60px 55px',
         right: 'auto ',
@@ -14,7 +16,6 @@ const customStyles = {
         transform: 'translate(-50%, -50%) ',
         position: 'fixed',
         overflow: 'visible ',   
-        width: 750,    
     }
   };
 
@@ -100,6 +101,7 @@ class PopModal extends Component {
           text: text
         });
       }
+      
     
 
       render () {
@@ -110,7 +112,7 @@ class PopModal extends Component {
             {/* 회원가입모달*/}
             <input type ='button' onClick={this.handleModal} value='회원가입'/>
 
-            <Modal  isOpen={this.state.showModal} contentLabel="회원가입" style={customStyles}>
+            <Modal className='join-width' isOpen={this.state.showModal} contentLabel="회원가입" style={customStyles}>
               {/* 회원가입 모달 네브 */}
               <div className='border-bottom'>
                <input className='join-main-x' type ='button'  onClick={this.handleModal} />

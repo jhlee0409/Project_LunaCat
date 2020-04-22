@@ -121,7 +121,7 @@ class Preview extends Component {
           <span className="dzu-previewFileNameError">{title}</span>
           {status === 'error_file_size' && <span>{size < minSizeBytes ? 'File too small' : 'File too big'}</span>}
           {status === 'error_validation' && <span>{String(validationError)}</span>}
-          {canRemove && <span className="dzu-previewButton" onClick={remove} />}
+          {canRemove && <span className="dzu-previewButton remove" onClick={remove} />}
         </div>
       )
     }
@@ -138,13 +138,13 @@ class Preview extends Component {
 
         <div className="dzu-previewStatusContainer">
           {status === 'uploading' && canCancel && (
-              <span className="dzu-previewButton"  onClick={cancel} />
+              <span className="dzu-previewButton cancel"  onClick={cancel} />
             )}
           {status !== 'preparing' && status !== 'getting_upload_params' && status !== 'uploading' && canRemove && (
-            <span className="dzu-previewButton"  onClick={remove} />
+            <span className="dzu-previewButton remove"  onClick={remove} />
           )}
           {['error_upload_params', 'exception_upload', 'error_upload', 'aborted', 'ready'].includes(status) &&
-            canRestart && <span className="dzu-previewButton"  onClick={restart} />}
+            canRestart && <span className="dzu-previewButton restart"  onClick={restart} />}
         </div>
       </div>
     )

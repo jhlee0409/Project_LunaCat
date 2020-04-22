@@ -5,7 +5,9 @@ import logo from '../svg/logo.svg';
 
 const customStyles = {
     content : {
-        width:360,
+        outline: 'none',
+        position: 'absolute',
+        background: '#fff',
         margin: 'auto',
         borderRadius: 10,
         boxShadow: '0px 4px 6px #00000017',
@@ -39,7 +41,7 @@ class LoginForm extends Component {
         return (
             <div>
                 <input type='button' value='로그인' onClick={this.handleModal} />
-                <Modal isOpen={this.state.showModal} style={customStyles}>
+                <Modal className='login-width' isOpen={this.state.showModal} style={customStyles}>
                     <div className='login-modal-top'>
                         <img className='Logo'src={logo} alt='로고'/>
                         <h3 className="login-txt">"welcome to Epiclogue"</h3>

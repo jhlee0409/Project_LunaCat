@@ -7,10 +7,13 @@ body{min-width:320px; transition: all 0.5s; }
     background-color: rgba(22, 22, 22, 0.3) !important;
     z-index: 2;
 }
+.join-width {
+    width: -webkit-fill-available ;
+
+}
 .ReactModal__Content {
     border: none !important;
     border-radius: 0 !important;
-    width: -webkit-fill-available ;
     height: -webkit-fill-available;
 }
 .border-bottom {
@@ -136,7 +139,10 @@ body{min-width:320px; transition: all 0.5s; }
         font-size:16px;
         
     }
-    
+    .join-width {
+        width: 750px;
+        
+    }
     .ReactModal__Overlay{
         background-color: rgba(22, 22, 22, 0.3) !important;
         z-index: 2;

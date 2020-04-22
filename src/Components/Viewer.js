@@ -184,15 +184,15 @@ class Viewer extends Component {
 
                             <div className="flex-content">
                                 <div>
-                                    <img className='heart' src={this.state.bookmark} alt='좋아요' onClick={()=> {this.toggleBtn('bookmark')}}/>
+                                    <img className='heart' src={this.state.bookmark} alt='좋아요' onClick={(e)=> {this.toggleBtn(e,'bookmark')}}/>
                                 </div>
                                 <div style={{display:'flex'}}>
-                                    <img className='heart' src={this.state.heart} alt='좋아요' onClick={()=> {this.toggleBtn('heart')}}/>
+                                    <img className='heart' src={this.state.heart} alt='좋아요' onClick={(e)=> {this.toggleBtn(e,'heart')}}/>
                                     <span className='heart-count'>{this.state.heartCount}</span>
                                 </div>
                                 <div><button type='button' className='share trans-btn'></button></div>
                                 <div style={{display:'flex'}}>
-                                    <img className='globe' src={this.state.globe} alt='글로벌' onClick={()=> {this.toggleBtn('globe')}} />
+                                    <img className='globe' src={this.state.globe} alt='글로벌' onClick={(e)=> {this.toggleBtn(e,'globe')}} />
                                     <span className='globe-count'>{this.state.globeCount}</span>
                                 </div>
                             </div>
