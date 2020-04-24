@@ -92,6 +92,10 @@ p {
 }
 .fb-react-btn div {
     display: flex;
+    cursor: pointer;
+}
+.fb-react-btn span {
+    display: flex;
 }
 
 .fb-react-btn > button {
@@ -112,9 +116,6 @@ p {
 }
 
 /* 작가 작품 더보기 ------------------------------------------------------- */
-.similar-view-more {
-    text-align: center;
-}
 
 
 
@@ -305,11 +306,59 @@ p {
     background: #036D6C;
     border-radius: 10px;
 }
-@media only screen and (min-width: 768px) {
-        
+
+/* 팝업부분--------------------------------------------------------------------------------------------- */
+.fb-more-option, .similar-option {
+    height: auto;
+    width: 95% ;
+    border-radius: 5px;
+    
+}
+.viewer-popup-top {
+    height: 42px;
+    padding-left: 40px;
+    line-height: 42px;
+    font-weight: bold;
+    border-bottom: 2px solid #E9E9E9;
+}
+.viewer-popup-main  {
+    list-style-type: none;
+    list-style-position: inside;
+    margin: 0;
+    padding-left: 0;
+
+}
+.viewer-popup-btn {
+    font-size: 16px;
+    padding-left: 40px;
+    border: none;
+    background: #fff;
+    width: 100%;
+    text-align: left;
+    height: 54px;
+    transition: all 0.2s;
+    outline: none;
+    border-bottom: 1px solid #F7F7F7;
+}
+.viewer-popup-x button {
+    padding: 0;
+    height: 38px;
+    line-height: 38px;
+    text-align: center;
+    background: #F7F7F7;
+    border-top: 2px solid #E9E9E9;
+    color: #A49FBA;
+    border-radius: 0 0 5px 5px;
+}
+.viewer-popup-main button:hover {
+    background: #F7F7F7;
+}
+.viewer-popup-x button:hover {
+ background: #E9E9E9;
 }
 
-
+@media only screen and (min-width: 768px) {
+}
 @media only screen and (min-width: 960px) {
 
     body {
@@ -340,6 +389,19 @@ p {
         padding: 5px;
         margin-bottom: 3px;
     }
+    /* .fb-personal > div {
+        display: none;
+    }
+    .view0 {
+        display: block !important;
+    } */
+
+/* 팝업부분--------------------------------------------------------------------------------------------- */
+
+    .fb-more-option, .similar-option{
+        width: 340px ;
+    }
+
 }
 
 .my-masonry-grid {

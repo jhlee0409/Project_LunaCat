@@ -1,7 +1,6 @@
 import React from 'react';
 import Popup from "reactjs-popup";
-import '../App.css';
-import StylingButton from '../Components/StylingButton';
+import StylingButton from './StylingButton';
 import styled, { css } from 'styled-components';
 import Avatar from '@material-ui/core/Avatar';
 import Out from './Followpopup'

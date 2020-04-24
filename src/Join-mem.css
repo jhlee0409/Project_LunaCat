@@ -12,8 +12,6 @@ body{min-width:320px; transition: all 0.5s; }
 
 }
 .ReactModal__Content {
-    border: none !important;
-    border-radius: 0 !important;
     height: -webkit-fill-available;
 }
 .border-bottom {
@@ -148,7 +146,7 @@ body{min-width:320px; transition: all 0.5s; }
         z-index: 2;
     }
     .ReactModal__Content {
-        border-radius: 10px !important;
+        border-radius: 10px;
         height: auto;
         
     }

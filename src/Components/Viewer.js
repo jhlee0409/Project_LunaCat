@@ -3,8 +3,11 @@ import '../css/Viewer.css'
 import Swiper from 'react-id-swiper';
 import tileData from './tileData';
 import fbData from './fbData';
-
+import FbPopup from './fb-popup'
+import SimilarPopup from './similar-view-popup'
 import Masonry from 'react-masonry-css'
+
+import FbForm from './fbForm';
 
 const breakpointColumnsObj = {
     default: 5,
@@ -18,6 +21,7 @@ const breakpointColumnsObj = {
 
 
 class Viewer extends Component {
+    key = 2
     constructor(props) {
         super(props)
         this.state= {
@@ -36,12 +40,20 @@ class Viewer extends Component {
             globe: require(`../svg/globe.svg`),
             bookmark: require(`../svg/bookmark.svg`),
             commentIcon: require(`../svg/comment-icon.svg`),
-            fbs: fbData
+            fb: fbData,
+            fbClicked: false,
+            fbFollowColor: '#A49FBA',
+
+
         }
         this.toggleBtn=this.toggleBtn.bind(this)
         this.colorChange=this.colorChange.bind(this)
         this.toggle=this.toggle.bind(this)
     }
+
+    handleCreate = (data) => {
+        this.setState({fb: this.state.fb.concat({key: this.key++,...data})})
+      }
 
     colorChange = () => {
         var color1 = '#A49FBA',
@@ -54,9 +66,10 @@ class Viewer extends Component {
     }
     toggle = () => {
         this.setState({clicked: !this.state.clicked})
+        
     }
 
-    toggleBtn = (e,name) => {
+    toggleBtn = (name) => {
         var icon = require(`../svg/${name}.svg`),
             iconOn = require(`../svg/${name}On.svg`);
         if (name === 'heart') {
@@ -80,7 +93,7 @@ class Viewer extends Component {
             </div>
             <div style={{position:'relative'}}>
                 <img className='similar-img' src={item.img} alt={item.title}/>
-                <button className='similar-btn' type='button'></button>
+                <SimilarPopup className={`similar-option similar-option${index}`}/>
             </div>
             
             <div className='similar-title' >
@@ -89,14 +102,17 @@ class Viewer extends Component {
                 <span>1시간</span>    
             </div>
             <div className='similar-txt'>
-                <p>loremwegwegwegew ewgwegwegwegwegwegsafh q;wjkd iqwohdjklsan;</p>
+                <p>게시물 예시 안녕하세요 안녕하세요</p>
             </div>
             </div>
         })
+
+
     
  
 
     render(){
+        
         let boxclass = ['fb-comment'];
         if (this.state.clicked){
             boxclass.push('blue')
@@ -137,6 +153,7 @@ class Viewer extends Component {
                                     <span className='tugo-datetime'>{this.state.tugoDatetime}</span>
                                 </div>
                                 <button type='button' className='tugo-more-btn'></button>
+                                
                             </div>
                             <div>
                                 <p className='tugo-title'>안녕하세요 제목이에요</p>
@@ -184,15 +201,15 @@ class Viewer extends Component {
 
                             <div className="flex-content">
                                 <div>
-                                    <img className='heart' src={this.state.bookmark} alt='좋아요' onClick={(e)=> {this.toggleBtn(e,'bookmark')}}/>
+                                    <img className='heart' src={this.state.bookmark} alt='좋아요' onClick={()=> {this.toggleBtn('bookmark')}}/>
                                 </div>
                                 <div style={{display:'flex'}}>
-                                    <img className='heart' src={this.state.heart} alt='좋아요' onClick={(e)=> {this.toggleBtn(e,'heart')}}/>
+                                    <img className='heart' src={this.state.heart} alt='좋아요' onClick={()=> {this.toggleBtn('heart')}}/>
                                     <span className='heart-count'>{this.state.heartCount}</span>
                                 </div>
                                 <div><button type='button' className='share trans-btn'></button></div>
                                 <div style={{display:'flex'}}>
-                                    <img className='globe' src={this.state.globe} alt='글로벌' onClick={(e)=> {this.toggleBtn(e,'globe')}} />
+                                    <img className='globe' src={this.state.globe} alt='글로벌' onClick={()=> {this.toggleBtn('globe')}} />
                                     <span className='globe-count'>{this.state.globeCount}</span>
                                 </div>
                             </div>
@@ -203,12 +220,10 @@ class Viewer extends Component {
                                     <img src={require('../svg/comment-icon.svg')} alt='코멘트'/>
                                     <p>피드백<span>{this.state.fbCount}</span>개</p>
                                 </div>
-                                <div className='fb-div'>
-                                    <input className='fb-write' placeholder='피드백 하기...'/> 
-                                    <button type='button'className='fb-btn'></button>  
-                                </div>
+                                <FbForm
+                                    onCreate={this.handleCreate}
+                                    />
                             </div>
-                            
                             <div className='fb-group'>
                                 <div className='view-div'>
                                     <div className='tugo-top'>
@@ -231,11 +246,11 @@ class Viewer extends Component {
                                     </div>
                                     <div className='fb-react-btn'>
                                         <div>
-                                            <img className='fb-comment' src={this.state.commentIcon} alt='코멘트' onClick={(e)=> {this.toggleBtn(e,'comment-icon'); this.toggle()} }/>
+                                            <img className='fb-comment' src={this.state.commentIcon} alt='코멘트' onClick={()=> {this.toggleBtn('comment-icon'); this.toggle()} }/>
                                             <span className={boxclass.join(' ')}>{this.state.clicked ? '123' : '124'}</span>
                                         </div>
                                         <div>
-                                            <img className='fb-heart'src={this.state.heart} alt='좋아요' onClick={(e)=> {this.toggleBtn(e,'heart')}}/>
+                                            <img className='fb-heart'src={this.state.heart} alt='좋아요' onClick={()=> {this.toggleBtn('heart')}}/>
                                             <span>123</span>
                                         </div>
 
@@ -263,11 +278,11 @@ class Viewer extends Component {
                                     </div>
                                     <div className='fb-react-btn'>
                                         <div>
-                                            <img className='fb-comment'src={this.state.commentIcon} alt='코멘트' onClick={(e)=> {this.toggleBtn(e,'comment-icon')}}/>
+                                            <img className='fb-comment'src={this.state.commentIcon} alt='코멘트' onClick={()=> {this.toggleBtn('comment-icon')}}/>
                                             <span>123</span>
                                         </div>
                                         <div>
-                                            <img className='fb-heart'src={this.state.heart} alt='좋아요' onClick={(e)=> {this.toggleBtn(e,'heart')}}/>
+                                            <img className='fb-heart'src={this.state.heart} alt='좋아요' onClick={()=> {this.toggleBtn('heart')}}/>
                                             <span>123</span>
                                         </div>
 
@@ -279,36 +294,52 @@ class Viewer extends Component {
                                 <button><span>{this.state.fbGroupMore}</span>개의 피드백 그룹 </button>
                             </div>
                             <div className='fb-personal'>
-                                {this.state.fbs.map((item, index, toggleBtn) => {
+                                {this.state.fb.map((item, index) => {
+                                    function fbToggle(name) { 
+                                        if(name === 'fb-comment'){
+                                            item.toggleComment = !item.toggleComment;
+                                        } else if (name === 'fb-heart') {
+                                            item.toggleHeart = !item.toggleHeart;
+                                        } else if (name === 'fb-follow') {
+                                            item.toggleFollow = !item.toggleFollow;
+                                        }
+                                    }
+                                    
                                     return (
-                                    <div className='view-div' key={index}>
-                                        <div className='tugo-top'>
-                                            <img src={require('../svg/profile-img.svg')} alt='샘플이미지'/>
-                                            <div className='tugo-profile'>
-                                                <p className='profile-id'>{item.id}</p> 
-                                                <p className='profile-email'>{item.email}</p>
+                                        <div className={`view-div view${index}`} key={index}>
+                                            <div className='tugo-top'>
+                                                <img src={require('../svg/profile-img.svg')} alt='샘플이미지'/>
+                                                <div className='tugo-profile'>
+                                                    <p className='profile-id'>{item.id}</p> 
+                                                    <p className='profile-email'>{item.email}</p>
+                                                </div>
+                                                <div className='tugo-sub'>
+                                                    <button type='button' className={`follow-btn follow-btn${index}`} sytle={{color: this.state.fbFollowColor}} onClick={() => {fbToggle('fb-follow'); this.setState({fbClicked: item.toggleFollow, }); }}>
+                                                        {item.toggleFollow?  '팔로잉' : '팔로우'}    
+                                                    </button>
+                                                    <span className='tugo-datetime'>{item.datetime}</span>
+                                                </div>
+                                                <FbPopup className={`fb-more-option fb-more-option${index}`} id={item.id}/>
                                             </div>
-                                            <div className='tugo-sub'>
-                                                <button type='button' className='follow-btn' ></button>
-                                                <span className='tugo-datetime'>{item.datetime}</span>
+                                            <div className='fb-txt'>
+                                                {item.content}
                                             </div>
-                                            <button type='button' className='tugo-more-btn'></button>
+                                            <div className='fb-react-btn'>
+                                                <div onClick={() => {fbToggle('fb-comment'); this.setState({fbClicked: item.toggleComment}); }}> 
+                                                    <span className={`fb-comment${index}`} > 
+                                                        {item.toggleComment?  <img src={item.commentIcon1} alt='코멘트'/> :  <img src={item.commentIcon} alt='코멘트'/>}
+                                                    </span>
+                                                    <span>{item.commentCount}</span>
+                                                </div>
+                                                <div onClick={() => {fbToggle('fb-heart'); this.setState({fbClicked: item.toggleHeart}); }}>
+                                                    <span className={`fb-heart${index}`}   > 
+                                                        {item.toggleHeart?  <img src={item.heart1} alt='좋아요'/> :  <img src={item.heart} alt='좋아요'/>}
+                                                    </span>
+                                                    <span>{item.heartCount}</span>
+                                                </div>
+                                                <button type='button'>피드백 하기</button>
+                                            </div>
                                         </div>
-                                        <div className='fb-txt'>
-                                            {item.content}
-                                        </div>
-                                        <div className='fb-react-btn'>
-                                            <div>
-                                                <img className='fb-comment'src={item.commentIcon} alt='코멘트' onClick={(e)=> this.toggleBtn(e,item.btn1)}/>
-                                                <span>{item.commentCount}</span>
-                                            </div>
-                                            <div>
-                                                <img className='fb-heart'src={item.heart} alt='좋아요' onClick={(e)=> this.toggleBtn(e,item.btn2)}/>
-                                                <span>{item.heartCount}</span>
-                                            </div>
-                                            <button type='button'>피드백 하기</button>
-                                        </div>
-                                    </div>
                                         )
                                 })}
                             </div>
