@@ -22,8 +22,6 @@ class fbPopup extends Component {
         super(props);
         this.state = {
             showModal: false,
-            textCase: "",
-            text: ""
         };  
         this.handleModal=this.handleModal.bind(this)
       }    

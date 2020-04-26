@@ -194,6 +194,15 @@ font-weight: 500;
   max-width: 107px !important;
   min-width: 107px !important;
 }
+.ageSet-btn {
+  border-radius: 34px;
+  width: 72px;
+  height: 32px;
+  font-weight: bold;
+  border: 1px solid #F7708F;
+  margin-left: 16px;
+  transition: all 0.2s;
+}
 
 
 /* 팝업 */
@@ -257,6 +266,7 @@ html, body, .app {
   display: flex;
   align-items: center;
 }
+
 
 .makeStyles-list-300::-webkit-scrollbar {
   display:none;

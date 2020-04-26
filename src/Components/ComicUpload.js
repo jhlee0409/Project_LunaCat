@@ -14,7 +14,7 @@ import P_post from '../svg/Off/P_post.svg';
 import P_postOn from '../svg/On/P_postOn.svg';
 
 import ImageUploaderJS from './ImageUploaderJS';
-import {ImageUpload, Preview} from './asdasdsad';
+import {ImageUpload } from './asdasdsad';
 
 
 const styles = theme => ({

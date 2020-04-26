@@ -308,13 +308,19 @@ p {
 }
 
 /* 팝업부분--------------------------------------------------------------------------------------------- */
-.fb-more-option, .similar-option {
+
+/* 피드백 파트 */
+.fb-more-option, .similar-option, .bookmark-option, .bookmark-more-option, .addBookmark-option {
     height: auto;
     width: 95% ;
     border-radius: 5px;
-    
+}
+.bookmark-option, .share-popup-option {
+    width: 100%;
+    border-radius: 5px;
 }
 .viewer-popup-top {
+    display: flex;
     height: 42px;
     padding-left: 40px;
     line-height: 42px;
@@ -356,6 +362,96 @@ p {
 .viewer-popup-x button:hover {
  background: #E9E9E9;
 }
+/* 북마크 팝업 */
+.bookmark-popup-main {
+    min-height: 264px;
+    max-height: 264px;
+    background: #E9E9E9;
+    overflow: auto;
+}
+.bookmark-popup-btn {
+    height: 72px;
+    display: flex;
+    justify-content: space-between;
+}
+.bookrmark-li {
+    position: relative;
+    
+}
+.bookmark-more-btn {
+    position: absolute;
+    z-index: 1;
+    top: 35%;
+    right: 1%;
+}
+.bookmark-popup, .share-popup {
+    padding-right: 10px;
+}
+
+.addBookmark {
+    color: #F1AD39;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    height: 48px;
+    
+}
+.addBookmark img {
+    align-self: center;
+    padding-right: 5px;
+}
+.addBookmark-title {
+    font-weight: bold;
+    padding: 30px ;
+}
+.addBookmark-input-div {
+    margin: 0 30px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #A49FBA;
+    opacity: 0.7;
+}
+.addBookmark-input-div input {
+    width: 100%;
+    height: 20px;
+    border: none;
+}
+.addBookmark-input-div input::placeholder {
+    color: #A49FBA;
+}
+.addBookrmark-btn-div {
+    display: flex;
+    padding: 20px 40px 50px 40px;
+    justify-content: space-between;
+}
+.addBookmark-btn1, .addBookmark-btn2 {
+    border: 2px solid #B6B2C8;
+    border-radius: 34px;
+    height: 34px;    
+    background: #fff;
+    color: #B6B2C8;
+    transition: all 0.2s;
+}
+.addBookmark-btn1 {
+    display: flex;
+    padding-left:15px;
+    width: 108px;
+    align-items: center;
+}
+.addBookmark-btn2 {
+    width: 80px;
+}
+.addBookmark-btn2:hover {
+    color: #FFF;
+    background: #F1AD39 !important;
+    border-color: #F1AD39;
+}
+.addBookmark-btn1 img {
+   padding-right: 5px;
+}
+.share-popup-li, .share-popup-li > button {
+    display: flex;
+}
+
 
 @media only screen and (min-width: 768px) {
 }
@@ -398,8 +494,11 @@ p {
 
 /* 팝업부분--------------------------------------------------------------------------------------------- */
 
-    .fb-more-option, .similar-option{
+    .fb-more-option, .similar-option, .bookmark-more-option {
         width: 340px ;
+    }
+    .bookmark-option, .addBookmark-option, .share-popup-option {
+        width: 480px;
     }
 
 }

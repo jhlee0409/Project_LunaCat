@@ -6,8 +6,9 @@ import fbData from './fbData';
 import FbPopup from './fb-popup'
 import SimilarPopup from './similar-view-popup'
 import Masonry from 'react-masonry-css'
-
+import BookmarkPopup from './Bookmark-Popup'
 import FbForm from './fbForm';
+import SharePopup from './share-popup'
 
 const breakpointColumnsObj = {
     default: 5,
@@ -16,8 +17,6 @@ const breakpointColumnsObj = {
     960: 3,
     800: 2,
 };
-
-
 
 
 class Viewer extends Component {
@@ -107,9 +106,6 @@ class Viewer extends Component {
             </div>
         })
 
-
-    
- 
 
     render(){
         
@@ -201,13 +197,14 @@ class Viewer extends Component {
 
                             <div className="flex-content">
                                 <div>
-                                    <img className='heart' src={this.state.bookmark} alt='좋아요' onClick={()=> {this.toggleBtn('bookmark')}}/>
+                                    <img className='bookmark' src={this.state.bookmark} alt='북마크' onClick={()=> {this.toggleBtn('bookmark')}}/>
+                                    <BookmarkPopup />
                                 </div>
                                 <div style={{display:'flex'}}>
                                     <img className='heart' src={this.state.heart} alt='좋아요' onClick={()=> {this.toggleBtn('heart')}}/>
                                     <span className='heart-count'>{this.state.heartCount}</span>
                                 </div>
-                                <div><button type='button' className='share trans-btn'></button></div>
+                                <div><SharePopup/></div>
                                 <div style={{display:'flex'}}>
                                     <img className='globe' src={this.state.globe} alt='글로벌' onClick={()=> {this.toggleBtn('globe')}} />
                                     <span className='globe-count'>{this.state.globeCount}</span>

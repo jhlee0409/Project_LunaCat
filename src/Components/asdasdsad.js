@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import 'react-dropzone-uploader/dist/styles.css'
 import '../css/dz.css'
-import Dropzone, {ILayoutProps } from 'react-dropzone-uploader'
+import Dropzone, { ILayoutProps } from 'react-dropzone-uploader'
 import Masonry from 'react-masonry-css'
 
 const breakpointColumnsObj = {

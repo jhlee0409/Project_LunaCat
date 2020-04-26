@@ -17,11 +17,11 @@ const customStyles = {
     }
   };
 
-class similarPopup extends Component {
+class SharePopup extends Component {
     constructor (props) {
         super(props);
         this.state = {
-            showModal: false,
+            showModal: true,
         };  
         this.handleModal=this.handleModal.bind(this)
       }    
@@ -36,19 +36,19 @@ class similarPopup extends Component {
       render () {
         return (
           <div style={{marginLeft: 'auto'}}>
-            {/* 비슷한 작품 더보기 옵션*/}
-            <button type='button'className='similar-btn'  onClick={this.handleModal} ></button>
-
-            <Modal className={this.props.className} isOpen={this.state.showModal} style={customStyles}>
+            {/* 공유하기 옵션*/}
+            <button type='button' className='share trans-btn' onClick={this.handleModal} ></button>
+            <Modal className='share-popup-option' isOpen={this.state.showModal} style={customStyles}>
               <div className='viewer-popup-top'>
-                작품 옵션
+              <img className='share-popup' src={require('../svg/shareOn.svg')} alt='공유하기'/>공유하기
               </div>           
               <ul className='viewer-popup-main'>
-                <li> <button className='viewer-popup-btn' type='button'> 북마크 하기</button> </li> 
-                <li> <button className='viewer-popup-btn' type='button'> 번역하기 </button> </li> 
-                <li> <button className='viewer-popup-btn' type='button'> 공유하기 </button> </li> 
-                <li> <button className='viewer-popup-btn' type='button'> 신고하기 </button> </li> 
-                <li> <button className='viewer-popup-btn' type='button'> 뮤트하기 </button> </li> 
+                <li className='share-popup-li'> <button className='viewer-popup-btn' type='button'> <img className='share-popup' src={require('../svg/link-icon.svg')} alt='링크'/>링크 공유하기</button> </li> 
+                <li className='share-popup-li'> 
+                  <button className='viewer-popup-btn' type='button'> <img  src={require('../svg/twitter-logo.svg')} alt='트위터'/> </button> 
+                  <button className='viewer-popup-btn' type='button'> <img  src={require('../svg/Pinterest-logo.svg')} alt='핀터레스트'/> </button> 
+                  <button className='viewer-popup-btn' type='button'> <img  src={require('../svg/tumblr-logo.svg')} alt='텀블러'/> </button> 
+                </li> 
               </ul>
               <div className='viewer-popup-x'>
                 <button className='viewer-popup-btn' type='button' onClick={this.handleModal} >닫기</button>
@@ -60,4 +60,4 @@ class similarPopup extends Component {
     }
 
 
-export default similarPopup;
+export default SharePopup;
