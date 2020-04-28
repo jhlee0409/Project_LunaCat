@@ -9,6 +9,7 @@ import Masonry from 'react-masonry-css'
 import BookmarkPopup from './Bookmark-Popup'
 import FbForm from './fbForm';
 import SharePopup from './share-popup'
+import ReactPopup from './react-popup'
 
 const breakpointColumnsObj = {
     default: 5,
@@ -189,10 +190,7 @@ class Viewer extends Component {
                     <div>
                         <div className='translate-div'>
                             <div className='flex-content fb-more-btn'>
-                                <button className='react-btn'>
-                                <img src={require(`../svg/react-icon.svg`)} alt='반응'/>
-                                <span className='react-count'>{this.state.reactCount}</span>명이 반응하고 있어요
-                                </button>
+                                <ReactPopup cnt={this.state.reactCount}/>
                             </div>
 
                             <div className="flex-content">

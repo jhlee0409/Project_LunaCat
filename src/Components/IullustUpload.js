@@ -3,7 +3,6 @@ import '../App.css';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 
-import PostOption from '../Components/PostOption';
 import ImageUploaderJS from '../Components/ImageUploaderJS';
 
 const styles = theme => ({
@@ -67,7 +66,7 @@ class MainContent extends Component {
                   <input className='UploadTitle'name="name" ref='name' maxLength='50' type='text' placeholder="제목을 입력하세요." ></input>
                   <textarea className='sns-text' name="sns-text" ref='sns-text' cols='50' rows='8' placeholder='내용을 작성해 주세요.' maxLength='300'></textarea>
                 </div>
-                <PostOption/>
+                
               </article>
             </Grid>
           </Grid>

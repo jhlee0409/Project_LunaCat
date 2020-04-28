@@ -21,7 +21,7 @@ class SharePopup extends Component {
     constructor (props) {
         super(props);
         this.state = {
-            showModal: true,
+            showModal: false,
         };  
         this.handleModal=this.handleModal.bind(this)
       }    
