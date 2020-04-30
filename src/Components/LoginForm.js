@@ -2,6 +2,7 @@ import React,{Component} from 'react'
 import Modal from 'react-modal'
 import '../LoginForm.css'
 import logo from '../svg/logo.svg';
+import JoinMem from './Join-mem';
 
 const customStyles = {
     content : {
@@ -55,7 +56,7 @@ class LoginForm extends Component {
                             <span className='login-lost click-box' onClick={this.handleModal1} >혹시 로그인 정보를 잃어버리셨나요?</span>
                             <div className='Login-btn-box' >
                                 <button type='button' className='login-btn1' >로그인</button>
-                                <button type='button' >회원가입</button>
+                                <JoinMem/>
                             </div>
                             <div className="border-line"></div>
                             <div className='sns-login' >

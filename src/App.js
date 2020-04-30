@@ -5,7 +5,7 @@ import StylingButton from './Components/StylingButton';
 import ComicUpload from './Components/ComicUpload';
 import IullustUpload from './Components/IullustUpload';
 import Viewer from './Components/Viewer'
-
+import LoginForm from './Components/LoginForm'
 import logo from './svg/logo.svg';
 import alertt from './svg/Off/alert.svg';
 import alertOn from './svg/On/alertOn.svg';
@@ -54,7 +54,7 @@ class App extends Component {
       showPopup3: false,  
       showPopup4: false,  
       open: false,
-      component: <Viewer/>,
+      component: <ComicUpload/>,
       num: 1,
       title: [
         {id: 2, name:'대화', content: 'dd'},
@@ -119,6 +119,7 @@ class App extends Component {
             <StylingButton alt='코믹' onClick={() =>this.onChange('Comic')} primary background={ComicButton} backgroundH={ComicButtonOn}/>
             <StylingButton alt='일러스트' onClick={() =>this.onChange("Illust")} primary background={IllustButton} backgroundH={IllustButtonOn}/>
             <button onClick={() => this.onChange('Viewer')}>뷰어</button>
+            <LoginForm/>
           </div>    
 
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../App.css';
 import { withStyles } from '@material-ui/core/styles';
+import ImageUploader from 'react-images-upload';
 import Grid from '@material-ui/core/Grid';
 
 import Radio from '@material-ui/core/Radio';
@@ -9,17 +10,13 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import grey from '@material-ui/core/colors/grey';
 
-import PopModal from './Join-mem'
+import JoinMem from './Join-mem'
 import LoginForm from './LoginForm'
 
 import StylingButton from './StylingButton';
 
 import P_post from '../svg/Off/P_post.svg';
 import P_postOn from '../svg/On/P_postOn.svg';
-
-import ImageUploaderJS from './ImageUploaderJS';
-import {ImageUpload } from './asdasdsad';
-
 
 const styles = theme => ({
   root: {
@@ -52,11 +49,21 @@ class MainContent extends Component {
       age: false,
       bg:'#FFF',
       color:'#F7708F',
+      file: [],
+      URLs: [],
+      maxSize: 50,
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleChange1 = this.handleChange1.bind(this)
+    this.onDrop = this.onDrop.bind(this);
     this.ageSet = this.ageSet.bind(this)
   } 
+  onDrop(pictureFiles, pictureDataURLs) {
+    this.setState({
+      file: this.state.file.slice(this.state.file.length).concat(pictureFiles),
+      URLs: this.state.URLs.slice(this.state.file.length)
+    });
+}
   handleChange0 = (e) => {
     this.setState({
       ctg : e.target.value    
@@ -66,6 +73,8 @@ class MainContent extends Component {
     this.setState({
       option : e.target.value
     })
+    console.log(this.state.URLs)
+    console.log(this.state.file)
   }
   ageSet = () => {
     this.setState({
@@ -85,13 +94,14 @@ class MainContent extends Component {
     this.setState({
       [e.target.name]: e.target.value
     })
-    console.log(e.target.value)
+
   }
   
   handleSubmit = (e) => {
     alert(`Title name was submitted: ${this.state.title} 
     and Content : ${this.state.content}
-    and BtnValue : ctg = ${this.state.ctg}, option = ${this.state.option}, ageset = ${this.state.age}`);
+    and BtnValue : ctg = ${this.state.ctg}, option = ${this.state.option}, ageset = ${this.state.age} 
+    and files = ${this.state.file}`);
     e.preventDefault();
   }
 
@@ -113,39 +123,64 @@ class MainContent extends Component {
   //     } 
   //   } 
   // }
-  onAlert = () => alert('asfasf')
 
   render() {
     const { classes } = this.props;
+    if ( this.state.file.length !== this.state.URLs.length) {
+      for (let i = 0; i < this.state.file.length; i++) {
+        this.state.URLs.push(URL.createObjectURL(this.state.file[i]))
+      }
+    }
       return(
         <form className={classes.root} onSubmit={this.handleSubmit} >
 
           <Grid container spacing={1}>
 
             <Grid item  md={8} xs={12}>
+{/* ---------프리뷰 파트----------------------*/}
               <article className='article b'>
-                <div id="preview-container" style={{padding: '0 20%'}} />
-                <PopModal/>
-                <LoginForm/>
+                <div id="preview-container" >
+                  {this.state.URLs.map((url,index) => {
+                    return (
+                      <div key={index}>
+                        <img key={index} src={url} alt="..." />
+                      </div>
+                    )
+                  })}
+                </div>
               </article>
             </Grid>
 
             <Grid item  md={4} xs={12}>
+{/* ---------이미지 업로드 파트----------------------*/}
               <article  className='article a'>
                 <label >코믹 드래그나 클릭해서 업로드하세요.</label>        
                 <div className='Upload'>
-                  <ImageUploaderJS handle={this.handleChange}/>      
-                  {/* <MyUploader/>      */}
+                <ImageUploader   
+                  withPreview={true}
+                  withIcon={false}
+                  label=''          
+                  buttonClassName='ImageUploaderButton'   
+                  className='ImaUp'                 
+                  buttonText=''
+                  onChange={this.onDrop} 
+                  fileSizeError='한도 용량이 초과되었어요!'
+                  fileTypeError='.jpg, .gif, .png 만 가능해요'
+                  imgExtension={['.jpg', '.gif', '.png']}
+                  maxFileSize={1024*1024*this.state.maxSize}/>      
                 </div >
               </article >
 
+{/* ---------텍스트 작성 파트----------------------*/}
               <article className='article c'>
-                <div className='UploadTitle'>
+                <div className='UploadText'>
                   <input className='UploadTitle' name="title" ref='title' maxLength='50' type='text' placeholder="제목을 입력하세요."  onChange={this.handleChange} />
                   <textarea className='sns-text' name="content" ref='sns-text' cols='50' rows='8' placeholder='내용을 작성해 주세요.' maxLength='300' onChange={this.handleChange}/>
                 </div>
+              </article>
+{/* ---------서밋 파트----------------------*/}
 
-                <div className='PostOption'>          
+              <div className='article PostOption'>          
                     <FormControl  style={{display: "flex"}} component="fieldset">
                       <div className='divide'style={{color: "#A49FBA"}} >카테고리
                         <RadioGroup  row aria-label="gender" name="gender1" value={this.state.ctg} onChange={this.handleChange0} >
@@ -164,11 +199,10 @@ class MainContent extends Component {
                           <button type='button' className='ageSet-btn'style={{background:this.state.bg, color:this.state.color,}} onClick={this.ageSet}> R - 18</button>
                         </div>
                     </FormControl>
-                    <div className='Post'>
-                        <StylingButton primary type='submit' value='Submit' background={P_post} backgroundH={P_postOn}/>
-                    </div>
                 </div>
-              </article>
+              <div className='article Post'>
+                    <button type='submit' value='Submit'>게시하기</button>
+                  </div>
             </Grid>
           </Grid>
       </form> 

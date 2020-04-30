@@ -69,7 +69,7 @@ class TextInput extends React.Component {
 
 
 
-class PopModal extends Component {
+class JoinMem extends Component {
     constructor (props) {
         super(props);
         this.state = {
@@ -110,7 +110,7 @@ class PopModal extends Component {
         return (
           <div>
             {/* 회원가입모달*/}
-            <input type ='button' onClick={this.handleModal} value='회원가입'/>
+            <button type='button' onClick={this.handleModal}>회원가입</button>
 
             <Modal className='join-width' isOpen={this.state.showModal} contentLabel="회원가입" style={customStyles}>
               {/* 회원가입 모달 네브 */}
@@ -186,4 +186,4 @@ class PopModal extends Component {
     }
 
 
-export default PopModal;
+export default JoinMem;
