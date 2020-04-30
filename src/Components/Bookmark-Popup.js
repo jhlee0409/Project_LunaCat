@@ -92,7 +92,7 @@ class AddBookmarkGroup extends Component {
       return (
         <div>
           {/* 뷰어 북마크 옵션*/}
-          <button className='viewer-popup-btn addBookmark' type='button' onClick={this.handleModal}> <img className='bookmark' src={require('../svg/bookmarkPlus.svg')} alt='북마크'/>북마크 그룹 추가하기 </button>
+          <button className='viewer-popup-btn addBookmark' type='button' onClick={this.handleModal}> <img className='bookmark-Plus' src={require('../svg/bookmarkPlus.svg')} alt='북마크'/>북마크 그룹 추가하기 </button>
 
           <Modal className='addBookmark-option' isOpen={this.state.showModal} style={customStyles}>
             <div className='viewer-popup-top' style={{display:'flex'}}>
@@ -134,7 +134,7 @@ class BookmarkPopup extends Component {
         return (
           <div>
             {/* 뷰어 북마크 */}
-            <button type='button'className=''  onClick={this.handleModal} ></button>
+            <button type='button'className='bookmark'  onClick={this.handleModal} ></button>
 
             <Modal className='bookmark-option' isOpen={this.state.showModal} style={customStyles}>
               <div className='viewer-popup-top' style={{display:'flex'}}>

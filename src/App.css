@@ -1,8 +1,5 @@
 /* 네브 */
-.top:nth-child(1) {
-  display: flex;
-}
-.top:nth-child(2) {
+.main-nav {
   display: none;
 }
 
@@ -53,6 +50,11 @@
 }
 
 /* 업로드 섹션 -----------------------------------------------------------------------------------------------------------------*/
+.upload-nav {
+  display: flex;
+  left: 0;
+  top: 0;
+}
 .article.a {
   text-align: center;
 }
@@ -192,7 +194,10 @@ font-weight: 500;
   opacity: 0.7;
 }
 .Post {
-  padding: 2% 0;
+  padding-right: 1%;
+}
+.Post-web {
+  display: none;
 }
 .Post button {
   border-radius: 34px;
@@ -201,14 +206,10 @@ font-weight: 500;
   opacity: 0.8;
   color: #fff;
   height: 40px;
-  position: relative;
-  left: 70%;
   width: 107px;
 }
 .Post button:hover {
   opacity: 1;
-  position: relative;
-
 }
 .ageSet-btn {
   border-radius: 34px;
@@ -360,11 +361,8 @@ html, body, .app {
     overflow: auto;
     z-index: 0;
   }
-  .top:nth-child(1) {
-    display: none;
-  }
-  .top:nth-child(2) {
-    display: flex
+  .upload-nav {
+    display: none !important;
   }
   .lnb{
     display: none;
@@ -420,6 +418,16 @@ html, body, .app {
   .option .sc-AxjAm {
     margin: 0 20px;
   }
-
+  .Post {
+    padding: 2% 0;
+  }
+  .Post button {
+    margin-right: 1%;
+  }
+  .Post-web {
+    display: block;
+    text-align: end;
+    position: relative;
+  }
   
 }

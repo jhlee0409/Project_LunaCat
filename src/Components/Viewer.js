@@ -3,6 +3,7 @@ import '../css/Viewer.css'
 import Swiper from 'react-id-swiper';
 import tileData from './tileData';
 import fbData from './fbData';
+import fbGroupData from './fbGroupData';
 import FbPopup from './fb-popup'
 import SimilarPopup from './similar-view-popup'
 import Masonry from 'react-masonry-css'
@@ -41,10 +42,7 @@ class Viewer extends Component {
             bookmark: require(`../svg/bookmark.svg`),
             commentIcon: require(`../svg/comment-icon.svg`),
             fb: fbData,
-            fbClicked: false,
-            fbFollowColor: '#A49FBA',
-
-
+            fbGroup: fbGroupData,
         }
         this.toggleBtn=this.toggleBtn.bind(this)
         this.colorChange=this.colorChange.bind(this)
@@ -128,8 +126,15 @@ class Viewer extends Component {
             },
         }
         return(
-            <div className='view-main'>
-                    <div className='view-container-1' style={{height:200}}>이미지 입장</div>
+            <div>
+                <div>
+                    <nav className='top viewer-nav'>
+                        <div><img src={require('../svg/backspace.svg')} alt='뒤로가기'/></div>
+                        <button type='button' className='nav-more-btn'></button>
+                    </nav>
+                </div>
+                <div className='view-main'>
+
                 <div className='divide-section-1'>
                     <div >
                         <div className='view-div'>
@@ -188,16 +193,14 @@ class Viewer extends Component {
                         </div>
                     </div>
                     <div>
+                    <div className='view-container-1 VC-mobile' style={{height:200}}>이미지 입장</div>
                         <div className='translate-div'>
                             <div className='flex-content fb-more-btn'>
                                 <ReactPopup cnt={this.state.reactCount}/>
                             </div>
 
                             <div className="flex-content">
-                                <div>
-                                    <img className='bookmark' src={this.state.bookmark} alt='북마크' onClick={()=> {this.toggleBtn('bookmark')}}/>
-                                    <BookmarkPopup />
-                                </div>
+                                <div><BookmarkPopup /></div>
                                 <div style={{display:'flex'}}>
                                     <img className='heart' src={this.state.heart} alt='좋아요' onClick={()=> {this.toggleBtn('heart')}}/>
                                     <span className='heart-count'>{this.state.heartCount}</span>
@@ -215,12 +218,67 @@ class Viewer extends Component {
                                     <img src={require('../svg/comment-icon.svg')} alt='코멘트'/>
                                     <p>피드백<span>{this.state.fbCount}</span>개</p>
                                 </div>
-                                <FbForm
-                                    onCreate={this.handleCreate}
-                                    />
+                                <FbForm onCreate={this.handleCreate}/>
                             </div>
                             <div className='fb-group'>
-                                <div className='view-div'>
+                            {this.state.fbGroup.map((item, index) => {
+                                    function fbToggle(name) { 
+                                        if(name === 'fb-comment'){
+                                            item.toggleComment = !item.toggleComment;
+                                        } else if (name === 'fb-heart') {
+                                            item.toggleHeart = !item.toggleHeart;
+                                        } else if (name === 'fb-follow') {
+                                            item.toggleFollow = !item.toggleFollow;
+                                        }
+                                    }
+                                    
+                                    return (
+                                        <div className={`view-div view${index}`} key={index}>
+                                            <div className='tugo-top'>
+                                                <img src={require('../svg/profile-img.svg')} alt='샘플이미지'/>
+                                                <div className='tugo-profile'>
+                                                    <p className='profile-id'>{item.id}</p> 
+                                                    <p className='profile-email'>{item.email}</p>
+                                                </div>
+                                                <div className='tugo-sub'>
+                                                    <button type='button' className={`follow-btn follow-btn${index}`} 
+                                                        style={{color: item.followColor}} 
+                                                        onClick={() => { 
+                                                            fbToggle('fb-follow'); 
+                                                            this.setState({fbClicked: item.toggleFollow,}); 
+                                                        if(item.toggleFollow === false) {
+                                                            item.followColor = '#A49FBA'
+                                                        } else {
+                                                            item.followColor = '#F1AD39'
+                                                        }}}>
+                                                            {item.toggleFollow?  '팔로잉' : '팔로우'}    
+                                                        </button>
+                                                    <span className='tugo-datetime'>{item.datetime}</span>
+                                                </div>
+                                                <FbPopup className={`fb-more-option fb-more-option${index}`} id={item.id}/>
+                                            </div>
+                                            <div className='fb-txt'>
+                                                {item.content}
+                                            </div>
+                                            <div className='fb-react-btn'>
+                                                <div onClick={() => {fbToggle('fb-comment'); this.setState({fbClicked: item.toggleComment}); }}> 
+                                                    <span className={`fb-comment${index}`} > 
+                                                        {item.toggleComment?  <img src={item.commentIcon1} alt='코멘트'/> :  <img src={item.commentIcon} alt='코멘트'/>}
+                                                    </span>
+                                                    <span>{item.commentCount}</span>
+                                                </div>
+                                                <div onClick={() => {fbToggle('fb-heart'); this.setState({fbClicked: item.toggleHeart}); }}>
+                                                    <span className={`fb-heart${index}`}   > 
+                                                        {item.toggleHeart?  <img src={item.heart1} alt='좋아요'/> :  <img src={item.heart} alt='좋아요'/>}
+                                                    </span>
+                                                    <span>{item.heartCount}</span>
+                                                </div>
+                                                <button type='button'>피드백 하기</button>
+                                            </div>
+                                        </div>
+                                        )
+                                })}
+                                {/* <div className='view-div'>
                                     <div className='tugo-top'>
                                         <img src={require('../svg/profile-img.svg')} alt='샘플이미지'/>
 
@@ -283,7 +341,7 @@ class Viewer extends Component {
 
                                         <button type='button'>피드백 하기</button>
                                     </div>
-                                </div>
+                                </div> */}
                             </div>
                             <div className='fb-more-btn'>
                                 <button><span>{this.state.fbGroupMore}</span>개의 피드백 그룹 </button>
@@ -309,7 +367,17 @@ class Viewer extends Component {
                                                     <p className='profile-email'>{item.email}</p>
                                                 </div>
                                                 <div className='tugo-sub'>
-                                                    <button type='button' className={`follow-btn follow-btn${index}`} sytle={{color: this.state.fbFollowColor}} onClick={() => {fbToggle('fb-follow'); this.setState({fbClicked: item.toggleFollow, }); }}>
+                                                    <button type='button' className={`follow-btn follow-btn${index}`} 
+                                                    style={{color: item.followColor}} 
+                                                    onClick={() => { 
+                                                        fbToggle('fb-follow'); 
+                                                        this.setState({fbClicked: item.toggleFollow,}); 
+                                                    if(item.toggleFollow === false) {
+                                                        item.followColor = '#A49FBA'
+                                                    } else {
+                                                        item.followColor = '#F1AD39'
+
+                                                    }}}>
                                                         {item.toggleFollow?  '팔로잉' : '팔로우'}    
                                                     </button>
                                                     <span className='tugo-datetime'>{item.datetime}</span>
@@ -345,7 +413,7 @@ class Viewer extends Component {
                     </div>
                 </div>    
                 <div className='divide-section-2'> 
-                    <div className='view-container-2' style={{height:200}}>이미지 입장</div>
+                <div className='view-container-1 VC-web' style={{height:200}}>이미지 입장</div>
                     <div className='view-more'>
                         <h2>ABCD 작가 작품 </h2>
                         <Swiper containerClass='Swiper-container' wrapperClass='swiper-wrapper' slideClass='swiper-div'  {...params}>
@@ -370,6 +438,19 @@ class Viewer extends Component {
                         </div>
                 </div>
             </div>
+                <div className='lnb viewer-lnb'>
+                    <div className='lnb-inner'>
+                        <div className='lnb-wrap'>
+                            <button className='lnb-alert'type='button'></button>
+                            <button className='lnb-chat'type='button'></button>
+                            <button className='lnb-edit'type='button'></button>
+                            <button className='lnb-follow'type='button'></button>
+                            <button className='lnb-more'type='button'></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
         )
     }
 }

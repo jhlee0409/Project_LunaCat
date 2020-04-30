@@ -7,6 +7,8 @@ import IullustUpload from './Components/IullustUpload';
 import Viewer from './Components/Viewer'
 import LoginForm from './Components/LoginForm'
 import logo from './svg/logo.svg';
+import Profile from './Components/Profile' 
+
 import alertt from './svg/Off/alert.svg';
 import alertOn from './svg/On/alertOn.svg';
 
@@ -54,7 +56,7 @@ class App extends Component {
       showPopup3: false,  
       showPopup4: false,  
       open: false,
-      component: <ComicUpload/>,
+      component: <Viewer/>,
       num: 1,
       title: [
         {id: 2, name:'대화', content: 'dd'},
@@ -76,6 +78,10 @@ class App extends Component {
     } else if (name === 'Viewer') {
       this.setState({
         component: <Viewer/>
+      })
+    } else if (name === 'Profile') {
+      this.setState({
+        component: <Profile/>
       })
     }
 }  
@@ -102,13 +108,9 @@ class App extends Component {
   render(){
     return (
       <div className="App"> 
-        <nav className='top'>
-          <div><img src={require('./svg/backspace.svg')} alt='뒤로가기'/></div>
-          <button type='button' className='nav-more-btn'></button>
-        </nav>
         
-        <nav className='top'>
         
+        <nav className='top main-nav'>
           <img className='Logo'src={logo} alt='로고'/>
           <div className='search-bar'>
             <input className='serchBar' type="serch" placeholder="검색어를 입력하세요."/>
@@ -124,7 +126,7 @@ class App extends Component {
 
 
           <StylingButton alt='팔로우' follow background={follow} backgroundH={followOn}/>
-          <Popups alt='이름'/>
+          <Popups alt='이름' Profile={()=>this.onChange('Profile')}/>
           
 
 
@@ -140,17 +142,7 @@ class App extends Component {
             {this.state.showPopup4 ? <Popup alt='설정' title={this.state.title[2].name} text={this.state.title[2].content} closePopup={()=>this.togglePopup(4)}/> : null} 
         </nav>
           {this.state.component}
-        <div className='lnb'>
-          <div className='lnb-inner'>
-            <div className='lnb-wrap'>
-              <button className='lnb-alert'type='button'></button>
-              <button className='lnb-chat'type='button'></button>
-              <button className='lnb-edit'type='button'></button>
-              <button className='lnb-follow'type='button'></button>
-              <button className='lnb-more'type='button'></button>
-            </div>
-          </div>
-        </div>
+      
       </div>     
     ); 
   }

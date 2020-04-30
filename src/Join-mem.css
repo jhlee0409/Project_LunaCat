@@ -9,9 +9,6 @@ body{min-width:320px; transition: all 0.5s; }
 }
 .join-width {
     width: -webkit-fill-available ;
-
-}
-.ReactModal__Content {
     height: -webkit-fill-available;
 }
 .border-bottom {

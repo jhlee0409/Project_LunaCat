@@ -119,7 +119,7 @@ class ControlledPopup extends React.Component {
         
           <div className="popup_inner">
             <div className='Pf'>
-              <StylingButton onClick={()=>this.togglePopup(1)} Pf_Img alt='프로필설정' background={profiles} backgroundH={profileOn}/>
+              <StylingButton onClick={() => {this.props.Profile(); this.closeModal();}} Pf_Img alt='프로필설정' background={profiles} backgroundH={profileOn}/>
               <StylingButton onClick={()=>this.togglePopup(2)} Pf_Img alt='북마크보기' background={bookMark} backgroundH={bookMarkOn}/>
               <StylingButton onClick={()=>this.togglePopup(3)} Pf_Img alt='팔로우 목록'  background={followList} backgroundH={followListOn}/>
               <StylingButton onClick={()=>this.togglePopup(4)} Info alt='정책정보' background={policyInfo} backgroundH={policyInfoOn}/>

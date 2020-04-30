@@ -3,22 +3,28 @@
 html{font-size:14px;}
 body{min-width:320px; background: #F7F7F7;  }
 button{cursor: pointer;}
+.viewer-nav {
+    display: flex;
+}
+
 .view-main {
     padding-top: 70px;
     display: block;
 }
-.view-container-1,.view-container-2 {
-    border: 1px solid black;
-    
-}
 .view-container-1 {
-    display: block;
+    border: 1px solid black;
     background: #fff;
     margin-bottom: 3px;
+    
 }
-.view-container-2 {
+.VC-mobile {
+    display: block;
+}
+.VC-web {
     display: none;
 }
+
+
 .divide-section-1{
     width: auto;
 }
@@ -136,7 +142,6 @@ p {
 .follow-btn {
     border: none;
     background: none;
-    color: #707070;
 }
 
 .tugo-more-btn {
@@ -182,6 +187,14 @@ p {
 }
 .bookmark {
     display: block;
+    border: none;
+    background: url('../svg/bookmark.svg');
+    width: 16px;
+    height: 18px;
+    transition: all 0.2s;
+}
+.bookmark:hover {
+    background: url('../svg/bookmarkOn.svg');
 }
 .heart {
     cursor: pointer;
@@ -461,16 +474,15 @@ p {
         font-size:16px;
         background: #F7F7F7;
     }
+    .viewer-nav {
+        display: none;
+    }
+    
     .view-main {
         display: flex;
         flex-flow: row-reverse;
     }
-    .view-container-1 {
-        display: none;
-    }
-    .view-container-2 {
-        display: block;
-    }
+
     .divide-section-1{
         width: 30%;
     }
@@ -491,7 +503,12 @@ p {
     .view0 {
         display: block !important;
     } */
-
+    .VC-mobile {
+        display: none;
+    }
+    .VC-web {
+        display: block;
+    }
 /* 팝업부분--------------------------------------------------------------------------------------------- */
 
     .fb-more-option, .similar-option, .bookmark-more-option {

@@ -8,9 +8,11 @@
       <feComposite in="SourceGraphic"/>
     </filter>
   </defs>
-  <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#패스_2255)">
-    <path id="패스_2255-2" data-name="패스 2255" d="M44,0A44,44,0,1,1,0,44,44,44,0,0,1,44,0Z" transform="translate(9 6)" fill="#fff" opacity="0.9"/>
-  </g>
-  <path id="패스_2357" data-name="패스 2357" d="M8172.725,8709.942h-23.361V8749.7H8188.1v-24.028" transform="translate(-8116.363 -8677.961)" fill="none" stroke="#f1ad39" stroke-width="4" opacity="0.6"/>
-  <path id="합치기_35" data-name="합치기 35" d="M9,9H9V9H9V9Z" transform="translate(62.416 23)" fill="none" stroke="#f1ad39" stroke-linecap="round" stroke-width="4"/>
+  <g id="그룹_4754" data-name="그룹 4754" transform="translate(-296 -399)" opacity="0.9">
+    <g transform="matrix(1, 0, 0, 1, 296, 399)" filter="url(#패스_2255)">
+      <path id="패스_2255-2" data-name="패스 2255" d="M44,0A44,44,0,1,1,0,44,44,44,0,0,1,44,0Z" transform="translate(9 6)" fill="#fff" opacity="0.9"/>
+    </g>
+    <path id="패스_2357" data-name="패스 2357" d="M8172.725,8709.942h-23.361V8749.7H8188.1v-24.028" transform="translate(-7820.363 -8278.961)" fill="none" stroke="#f1ad39" stroke-width="4" opacity="0.6"/>
+    <path id="합치기_35" data-name="합치기 35" d="M9,9H9V9H9V9Z" transform="translate(358.416 422)" fill="none" stroke="#f1ad39" stroke-linecap="round" stroke-width="4"/>
+  </g> 
 </svg>

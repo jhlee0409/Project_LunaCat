@@ -10,14 +10,6 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import grey from '@material-ui/core/colors/grey';
 
-import JoinMem from './Join-mem'
-import LoginForm from './LoginForm'
-
-import StylingButton from './StylingButton';
-
-import P_post from '../svg/Off/P_post.svg';
-import P_postOn from '../svg/On/P_postOn.svg';
-
 const styles = theme => ({
   root: {
     padding: theme.spacing(3),
@@ -132,80 +124,91 @@ class MainContent extends Component {
       }
     }
       return(
-        <form className={classes.root} onSubmit={this.handleSubmit} >
-
-          <Grid container spacing={1}>
-
-            <Grid item  md={8} xs={12}>
-{/* ---------프리뷰 파트----------------------*/}
-              <article className='article b'>
-                <div id="preview-container" >
-                  {this.state.URLs.map((url,index) => {
-                    return (
-                      <div key={index}>
-                        <img key={index} src={url} alt="..." />
-                      </div>
-                    )
-                  })}
-                </div>
-              </article>
-            </Grid>
-
-            <Grid item  md={4} xs={12}>
-{/* ---------이미지 업로드 파트----------------------*/}
-              <article  className='article a'>
-                <label >코믹 드래그나 클릭해서 업로드하세요.</label>        
-                <div className='Upload'>
-                <ImageUploader   
-                  withPreview={true}
-                  withIcon={false}
-                  label=''          
-                  buttonClassName='ImageUploaderButton'   
-                  className='ImaUp'                 
-                  buttonText=''
-                  onChange={this.onDrop} 
-                  fileSizeError='한도 용량이 초과되었어요!'
-                  fileTypeError='.jpg, .gif, .png 만 가능해요'
-                  imgExtension={['.jpg', '.gif', '.png']}
-                  maxFileSize={1024*1024*this.state.maxSize}/>      
-                </div >
-              </article >
-
-{/* ---------텍스트 작성 파트----------------------*/}
-              <article className='article c'>
-                <div className='UploadText'>
-                  <input className='UploadTitle' name="title" ref='title' maxLength='50' type='text' placeholder="제목을 입력하세요."  onChange={this.handleChange} />
-                  <textarea className='sns-text' name="content" ref='sns-text' cols='50' rows='8' placeholder='내용을 작성해 주세요.' maxLength='300' onChange={this.handleChange}/>
-                </div>
-              </article>
-{/* ---------서밋 파트----------------------*/}
-
-              <div className='article PostOption'>          
-                    <FormControl  style={{display: "flex"}} component="fieldset">
-                      <div className='divide'style={{color: "#A49FBA"}} >카테고리
-                        <RadioGroup  row aria-label="gender" name="gender1" value={this.state.ctg} onChange={this.handleChange0} >
-                          <FormControlLabel  labelPlacement="start" value="Illust" control={<BlackRadio />} label="Illust" />
-                          <FormControlLabel  labelPlacement="start" value="Comic" control={<BlackRadio />} label="Comic" />
-                        </RadioGroup>
-                      </div>
-                      <div  className='divide'style={{color: "#A49FBA"}} >공개설정
-                        <RadioGroup row aria-label="gender" name="gender1" value={this.state.option} onChange={this.handleChange1}>
-                          <FormControlLabel   labelPlacement="start" value="공개" control={<BlackRadio />} label="공개" />
-                          <FormControlLabel   labelPlacement="start" value="비공개" control={<BlackRadio />} label="비공개" />
-                        </RadioGroup>
-                      </div>
-                      <div className='divide'>
-                          <div style={{fontSize:16, color: "#A49FBA"}}>연령설정 </div>        
-                          <button type='button' className='ageSet-btn'style={{background:this.state.bg, color:this.state.color,}} onClick={this.ageSet}> R - 18</button>
-                        </div>
-                    </FormControl>
-                </div>
-              <div className='article Post'>
+        <div>
+            <form className={classes.root} onSubmit={this.handleSubmit} >
+              <div>
+              <nav className='top upload-nav'>
+                  <div><img src={require('../svg/backspace.svg')} alt='뒤로가기'/></div>
+                  <div className='Post Post-mobile'>
                     <button type='submit' value='Submit'>게시하기</button>
                   </div>
-            </Grid>
-          </Grid>
-      </form> 
+              </nav>
+            </div>
+
+              <Grid container spacing={1}>
+
+                <Grid item  md={8} xs={12}>
+    {/* ---------프리뷰 파트----------------------*/}
+                  <article className='article b'>
+                    <div id="preview-container" >
+                      {this.state.URLs.map((url,index) => {
+                        return (
+                          <div key={index}>
+                            <img key={index} src={url} alt="..." />
+                          </div>
+                        )
+                      })}
+                    </div>
+                  </article>
+                </Grid>
+
+                <Grid item  md={4} xs={12}>
+    {/* ---------이미지 업로드 파트----------------------*/}
+                  <article  className='article a'>
+                    <label >코믹 드래그나 클릭해서 업로드하세요.</label>        
+                    <div className='Upload'>
+                    <ImageUploader   
+                      withPreview={true}
+                      withIcon={false}
+                      label=''          
+                      buttonClassName='ImageUploaderButton'   
+                      className='ImaUp'                 
+                      buttonText=''
+                      onChange={this.onDrop} 
+                      fileSizeError='한도 용량이 초과되었어요!'
+                      fileTypeError='.jpg, .gif, .png 만 가능해요'
+                      imgExtension={['.jpg', '.gif', '.png']}
+                      maxFileSize={1024*1024*this.state.maxSize}/>      
+                    </div >
+                  </article >
+
+    {/* ---------텍스트 작성 파트----------------------*/}
+                  <article className='article c'>
+                    <div className='UploadText'>
+                      <input className='UploadTitle' name="title" ref='title' maxLength='50' type='text' placeholder="제목을 입력하세요."  onChange={this.handleChange} />
+                      <textarea className='sns-text' name="content" ref='sns-text' cols='50' rows='8' placeholder='내용을 작성해 주세요.' maxLength='300' onChange={this.handleChange}/>
+                    </div>
+                  </article>
+    {/* ---------서밋 파트----------------------*/}
+
+                  <div className='article PostOption'>          
+                        <FormControl  style={{display: "flex"}} component="fieldset">
+                          <div className='divide'style={{color: "#A49FBA"}} >카테고리
+                            <RadioGroup  row aria-label="gender" name="gender1" value={this.state.ctg} onChange={this.handleChange0} >
+                              <FormControlLabel  labelPlacement="start" value="Illust" control={<BlackRadio />} label="Illust" />
+                              <FormControlLabel  labelPlacement="start" value="Comic" control={<BlackRadio />} label="Comic" />
+                            </RadioGroup>
+                          </div>
+                          <div  className='divide'style={{color: "#A49FBA"}} >공개설정
+                            <RadioGroup row aria-label="gender" name="gender1" value={this.state.option} onChange={this.handleChange1}>
+                              <FormControlLabel   labelPlacement="start" value="공개" control={<BlackRadio />} label="공개" />
+                              <FormControlLabel   labelPlacement="start" value="비공개" control={<BlackRadio />} label="비공개" />
+                            </RadioGroup>
+                          </div>
+                          <div className='divide'>
+                              <div style={{fontSize:16, color: "#A49FBA"}}>연령설정 </div>        
+                              <button type='button' className='ageSet-btn'style={{background:this.state.bg, color:this.state.color,}} onClick={this.ageSet}> R - 18</button>
+                            </div>
+                        </FormControl>
+                    </div>
+                      <div className='article Post Post-web'>
+                        <button type='submit' value='Submit'>게시하기</button>
+                      </div>
+                </Grid>
+              </Grid>
+          </form> 
+        </div>
+
     );
   }
 }

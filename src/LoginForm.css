@@ -2,6 +2,7 @@
 
 .login-width {
     width: -webkit-fill-available;
+    height: -webkit-fill-available;
 }
 .login-modal-top {
     display: flex;
