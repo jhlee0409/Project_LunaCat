@@ -136,7 +136,7 @@ class Profile extends Component {
             imgPreview = <img src={this.state.bannerFile} alt='' />;
         }
         return (
-            <div className='padding-top'>
+            <div className='padding-top '>
                 <form>
                     <div className='bg-color'>
                         <div className='profile-top'>

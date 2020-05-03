@@ -9,8 +9,8 @@ import SimilarPopup from './similar-view-popup'
 import Masonry from 'react-masonry-css'
 import BookmarkPopup from './Bookmark-Popup'
 import FbForm from './fbForm';
-import SharePopup from './share-popup'
-import ReactPopup from './react-popup'
+import SharePopup from './share-popup';
+import ReactPopup from './react-popup';
 
 const breakpointColumnsObj = {
     default: 5,
@@ -443,7 +443,7 @@ class Viewer extends Component {
                         <div className='lnb-wrap'>
                             <button className='lnb-alert'type='button'></button>
                             <button className='lnb-chat'type='button'></button>
-                            <button className='lnb-edit'type='button'></button>
+                            <button className='lnb-upload'type='button'></button>
                             <button className='lnb-follow'type='button'></button>
                             <button className='lnb-more'type='button'></button>
                         </div>

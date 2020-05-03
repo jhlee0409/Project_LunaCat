@@ -2,30 +2,21 @@ import React, { Component } from 'react';
 import './App.css';
 import Popups from './Components/Popup'
 import StylingButton from './Components/StylingButton';
-import ComicUpload from './Components/ComicUpload';
-import IullustUpload from './Components/IullustUpload';
+import UploadPage from './Components/UploadPage';
 import Viewer from './Components/Viewer'
 import LoginForm from './Components/LoginForm'
 import logo from './svg/logo.svg';
 import Profile from './Components/Profile' 
+import Main from './Components/main'
 
 import alertt from './svg/Off/alert.svg';
 import alertOn from './svg/On/alertOn.svg';
 
-import follow from './svg/Off/follow.svg';
-import followOn from './svg/On/followOn.svg';
-
-import IllustButton from './svg/Off/IllustButton.svg';
-import IllustButtonOn from './svg/On/IllustButtonOn.svg';
-
-import ComicButton from './svg/Off/ComicButton.svg';
-import ComicButtonOn from './svg/On/ComicButtonOn.svg';
+import chat from './svg/Off/chat.svg';
+import chatOn from './svg/On/chatOn.svg';
 
 import setup from './svg/Off/setup.svg';
 import setupOn from './svg/On/setupOn.svg';
-
-import chat from './svg/Off/chat.svg';
-import chatOn from './svg/On/chatOn.svg';
 
 import search from './svg/Off/search.svg';
 import searchOn from './svg/On/searchOn.svg';
@@ -56,7 +47,7 @@ class App extends Component {
       showPopup3: false,  
       showPopup4: false,  
       open: false,
-      component: <Viewer/>,
+      component: <Main/>,
       num: 1,
       title: [
         {id: 2, name:'대화', content: 'dd'},
@@ -67,13 +58,9 @@ class App extends Component {
   }
 
   onChange= (name) =>{
-    if (name === 'Comic') {
+    if (name === 'Upload') {
       this.setState({
-        component: <ComicUpload/>
-      })
-    } else if (name === 'Illust') {
-      this.setState({
-        component: <IullustUpload/>
+        component: <UploadPage/>
       })
     } else if (name === 'Viewer') {
       this.setState({
@@ -82,6 +69,10 @@ class App extends Component {
     } else if (name === 'Profile') {
       this.setState({
         component: <Profile/>
+      })
+    } else if (name === 'Main') {
+      this.setState({
+        component: <Main moveMain={() =>this.onChange('Main')} moveChangeProfile={()=>this.onChange('Profile')} moveUpload={()=> this.onChange('Upload')} moveComicViewer={() => this.onChange('Viewer')}/>
       })
     }
 }  
@@ -111,27 +102,30 @@ class App extends Component {
         
         
         <nav className='top main-nav'>
-          <img className='Logo'src={logo} alt='로고'/>
+          <img className='Logo' src={logo} style={{cursor:'pointer',}} alt='로고' onClick={() =>this.onChange('Main')}/>
           <div className='search-bar'>
             <input className='serchBar' type="serch" placeholder="검색어를 입력하세요."/>
             <StylingButton alt='검색' search background={search} backgroundH={searchOn}/>
           </div>
 
-          <div className='Mode'>
-            <StylingButton alt='코믹' onClick={() =>this.onChange('Comic')} primary background={ComicButton} backgroundH={ComicButtonOn}/>
-            <StylingButton alt='일러스트' onClick={() =>this.onChange("Illust")} primary background={IllustButton} backgroundH={IllustButtonOn}/>
-            <button onClick={() => this.onChange('Viewer')}>뷰어</button>
+          <div className='view-mode'>
+            <button className='comic-mode' onClick={() => this.onChange('Viewer')}>Comic</button>
+            <button className='illust-mode' onClick={() => this.onChange('Viewer')}>Illust</button>
             <LoginForm/>
           </div>    
 
 
-          <StylingButton alt='팔로우' follow background={follow} backgroundH={followOn}/>
+          <div className='main-follow-btn'>
+            <img src={require('./svg/follow.svg')} alt='팔로우'/>
+            <span>Follow</span>
+          </div>
+          
           <Popups alt='이름' Profile={()=>this.onChange('Profile')}/>
           
 
 
             <div className='option'>
-              <StylingButton alt='대화' onClick={()=>this.togglePopup(2)} background={chat} backgroundH={chatOn}/>         
+              <StylingButton alt='대화' onClick={()=>this.togglePopup(2)} background={chat} backgroundH={chatOn}/>            
               <StylingButton alt='알림' onClick={()=>this.togglePopup(3)} background={alertt} backgroundH={alertOn}/>     
               <StylingButton alt='설정' onClick={()=>this.togglePopup(4)} background={setup} backgroundH={setupOn}/>
             </div>

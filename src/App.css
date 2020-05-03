@@ -15,6 +15,10 @@
   align-items: center;
   
 }
+.Logo {
+  padding: 10px 20px 0 20px;
+  
+}
 
 .nav-more-btn {
   width: 38px;
@@ -26,6 +30,79 @@
 }
 .nav-more-btn:hover {
   background: url('./svg/more-btnOn.svg');
+}
+.search-bar {
+  display: flex;
+  width: calc(100% - 35%);
+  padding: 10px;
+  border: 2px solid #F7F7F7;
+  border-radius: 50px;
+  background: #F7F7F7 ;
+}
+.serchBar {
+  border: none;
+  width: calc(100% - 50px);
+  margin-right: 10px;
+  background: #F7F7F7 ;
+
+}
+.search-bar > button {
+  align-self: center;
+  margin-left: 10px;
+}
+.view-mode {
+  display: flex;
+  margin: 0 65px;
+}
+.view-mode button {
+  width: 110px;
+  height: 40px;
+  border-radius: 20px;
+  transition: all 0.2s;
+  opacity: 0.8;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 25px;
+}
+.comic-mode {
+  border: 2px solid #F1AD39;
+  color: #fff;
+
+  background: #F1AD39;
+}
+.comic-mode:hover{
+  color: #F1AD39;
+  background: #fff;
+}
+.illust-mode {
+  border: 2px solid #707070;
+  color: #fff;
+  background: #707070;
+}
+.illust-mode:hover{
+  color: #707070;
+  background: #fff;
+}
+
+.main-follow-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  /* min-width: 130px;
+  height: 48px; */
+  min-width: 45px;
+  height: 45px;
+  border-radius: 24px;
+  transition: all 0.2s;
+}
+.main-follow-btn:hover {
+  background: #E9E9E9;
+}
+.main-follow-btn span {
+  color: #A49FBA;
+  font-weight: bold;
+  padding-left: 8px;
 }
 /* 메인 -----------------------------------------------------------------------------------------------------------------*/
 .main {
@@ -50,6 +127,14 @@
 }
 
 /* 업로드 섹션 -----------------------------------------------------------------------------------------------------------------*/
+.upload-main {
+  flex-direction: column;
+
+}
+.upload-div-1, .upload-div-2  {
+  width: auto;
+  
+}
 .upload-nav {
   display: flex;
   left: 0;
@@ -297,65 +382,10 @@ html, body, .app {
   cursor: pointer;
 }
 
-/* lnb--------------------------------------------------------- */
-
-.lnb {
-  position: fixed;
-  bottom: 0;
-  background: #fff;
-  width: 100%;
-}
-
-.lnb-inner {
-  margin: 0 auto;
-  width: 100%;
-  height: 52px;
-}
-.lnb-wrap {
-  display: flex;
-  justify-content: space-evenly;
-  padding: 12.5px 0;
-}
-/* .lnb-wrap > button {
-  float: left;
-  width: calc(100% / 5);
-  height: 52px;
-  padding: 8px 0;
-} */
-.lnb-wrap > button {
-  border: none;
-
-}
-.lnb-alert{
-  background: url('./svg/lnb-alert.svg') no-repeat top left;
-  width: 22.125px;
-  height: 25px;
-  
-  
-}
-.lnb-chat{
-  background: url('./svg/lnb-chat.svg') no-repeat top left;
-  width: 26.032px;
-  height: 23px;
-}
-.lnb-edit{
-  background: url('./svg/lnb-edit.svg') no-repeat top left;
-  width: 25.87px;
-  height: 23px;
-}
-.lnb-follow{
-  background: url('./svg/lnb-follow.svg') no-repeat top left;
-  width: 23.999px;
-  height: 22px;
-}
-.lnb-more{
-  background: url('./svg/lnb-more.svg') no-repeat top left;
-  width: 23px;
-  height: 23px;
-}
 
 
-@media only screen and (min-width: 960px){
+
+@media only screen and (min-width: 1000px){
 
   html, body, #page-content {
     overflow: auto;
@@ -367,10 +397,7 @@ html, body, .app {
   .lnb{
     display: none;
   }
-  .Logo {
-    padding: 10px 20px 0 20px;
-    
-  }
+  
   .top {
     display: flex;
     position: fixed;
@@ -383,32 +410,14 @@ html, body, .app {
     align-items: center;
     
   }
-
-  .Mode {
-    display: flex;
-    margin: 0 65px;
-  }
-  .Mode .gqppJ {
-    margin-left: 10px;
-  }
   .search-bar {
-    display: flex;
     width: 100%;
-    padding: 10px;
-    border: 2px solid #F7F7F7;
-    border-radius: 50px;
-    background: #F7F7F7 ;
   }
-  .serchBar {
-    border: none;
-    width: calc(100% - 50px);
-    margin-right: 10px;
-    background: #F7F7F7 ;
 
-  }
-  .search-bar > button {
-    align-self: center;
-    margin-left: 10px;
+  .main-follow-btn {
+    min-width: 130px;
+    height: 48px;
+    margin-right: 15px;
   }
   
   .option {
@@ -416,7 +425,7 @@ html, body, .app {
     margin-left: 30px;
   }
   .option .sc-AxjAm {
-    margin: 0 20px;
+    margin: 0 1em;
   }
   .Post {
     padding: 2% 0;
@@ -428,6 +437,16 @@ html, body, .app {
     display: block;
     text-align: end;
     position: relative;
+  }
+  .upload-main {
+    display: flex;
+    flex-direction: row;
+  }
+  .upload-div-1  {
+    width: 100%;
+  }
+  .upload-div-2 {
+    width: 480px;
   }
   
 }

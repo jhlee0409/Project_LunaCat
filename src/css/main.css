@@ -1,0 +1,98 @@
+@charset "UTF-8";
+.main-mobile-nav {
+    display: flex;
+    justify-content: flex-start;
+}
+.main-mobile-nav button, .margin-auto{
+ margin: auto;
+}
+.main-top {
+    padding: 40px 0;
+}
+.main-slide {
+    border-radius: 10px;
+    margin: 10px;
+}
+.top-radius {
+    border-radius: 10px 10px 0 0;
+}
+.bottom-radius {
+    border-radius: 0 0 10px 10px;
+}
+.padding-side {
+    padding: 10px;
+    background: #fff;
+    margin-bottom: 3px ;
+}
+.upload-icon-div {
+    display: none;
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+}
+.upload-icon {
+    width: 90px;
+    height: 90px;
+    border: none;
+    background: url('../svg/upload-icon.svg');
+}
+.main-lnb {
+    display: flex;
+    width: 260px;
+    height: 52px;
+    right: 25%;
+    border-radius: 26px;
+    box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.2);
+    bottom: 1%;
+    justify-content: space-between;
+    align-items: center;
+}
+.main-lnb button {
+    justify-content: center;  
+    min-width: 40px;
+    min-height: 40px;
+    border-radius: 20px;
+    border: none;
+    transition: all 0.2s;
+    background-position: center;
+}
+.main-lnb button:hover {
+    opacity: 0.5;
+}
+.main-alert {
+    background: url('../svg/lnb-alert-icon.svg') no-repeat top left;
+
+}
+.main-chat {
+    background: url('../svg/lnb-chat-icon.svg') no-repeat top left;
+}
+.main-upload {
+    background: url('../svg/lnb-upload-icon.svg') no-repeat top left;
+}
+.main-comic {
+    color: #fff;
+    background: #F1AD39;
+    border: #F1AD39;
+}
+.main-illust {
+    color: #fff;
+    background: #222222;
+    border: #222222;
+}
+@media only screen and (min-width: 768px) {
+}
+
+@media only screen and (min-width: 1000px) {
+    .main-mobile-nav {
+        display: none;
+    }
+    .main-top {
+        padding: 40px 20px;
+    }
+    .upload-icon-div {
+        display: block;
+    }
+    .main-lnb {
+        display: none;
+    }
+}

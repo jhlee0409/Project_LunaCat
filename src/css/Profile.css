@@ -10,6 +10,7 @@ input {
     display: flex;
     flex-direction: column;
 }
+
 .bg-color {
     background: #fff ;
 }
@@ -135,9 +136,9 @@ input {
 @media only screen and (min-width: 768px) {
 }
 
-@media only screen and (min-width: 960px) {
+@media only screen and (min-width: 1000px) {
     .padding-top{
-        width: 960px;
+        width: 1000px;
     }
     .textArea textarea {
         width: calc(100% / 1.5);

@@ -44,7 +44,7 @@ class LoginForm extends Component {
                 <input type='button' value='로그인' onClick={this.handleModal} />
                 <Modal className='login-width' isOpen={this.state.showModal} style={customStyles}>
                     <div className='login-modal-top'>
-                        <img className='Logo'src={logo} alt='로고'/>
+                        <img className='Logo logo-popup'src={logo} alt='로고'/>
                         <h3 className="login-txt">"welcome to Epiclogue"</h3>
                     </div>
                     <div className='login-box'>

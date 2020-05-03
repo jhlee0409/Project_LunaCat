@@ -1,6 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="129" height="48" viewBox="0 0 129 48">
-  <rect id="사각형_1727" data-name="사각형 1727" width="129" height="48" rx="24" fill="#a49fba" opacity="0.8"/>
-  <g id="그룹_4540" data-name="그룹 4540" transform="translate(-974 11949.203)">
+<svg xmlns="http://www.w3.org/2000/svg" width="27.999" height="25" viewBox="0 0 27.999 25">
+  <g id="그룹_4540" data-name="그룹 4540" transform="translate(-996 11938.203)">
     <g id="타원_185" data-name="타원 185" transform="translate(1011.999 -11938.203)" fill="#fff" stroke="#a49fba" stroke-width="1">
       <circle cx="5" cy="5" r="5" stroke="none"/>
       <circle cx="5" cy="5" r="4.5" fill="none"/>
@@ -26,5 +25,4 @@
       <path d="M8,.5H8A7.5,7.5,0,0,1,15.5,8v6.3a.2.2,0,0,1-.2.2H.7a.2.2,0,0,1-.2-.2V8A7.5,7.5,0,0,1,8,.5Z" fill="none"/>
     </g>
   </g>
-  <text id="Follow" transform="translate(56 31)" fill="#222" font-size="16" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"><tspan x="0" y="0">Follow</tspan></text>
 </svg>
