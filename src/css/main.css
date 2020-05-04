@@ -1,4 +1,5 @@
 @charset "UTF-8";
+/* ------------------------ nav --------------------- */
 .main-mobile-nav {
     display: flex;
     justify-content: flex-start;
@@ -6,6 +7,17 @@
 .main-mobile-nav button, .margin-auto{
  margin: auto;
 }
+.search-icon {
+    background: url('../svg/Off/search.svg');
+    min-width: 23px;
+    min-height: 23px;
+    border: none;
+    transition: all 0.2s;
+}
+.search-icon:hover {
+    background: url('../svg/On/searchOn.svg');
+}
+/* ------------------------main------------------- */
 .main-top {
     padding: 40px 0;
 }

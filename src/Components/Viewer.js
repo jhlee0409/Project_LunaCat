@@ -1,16 +1,18 @@
 import React, { Component } from 'react'
 import '../css/Viewer.css'
 import Swiper from 'react-id-swiper';
+
 import tileData from './tileData';
 import fbData from './fbData';
 import fbGroupData from './fbGroupData';
-import FbPopup from './fb-popup'
-import SimilarPopup from './similar-view-popup'
+import FbPopup from './P_fb-popup'
 import Masonry from 'react-masonry-css'
-import BookmarkPopup from './Bookmark-Popup'
 import FbForm from './fbForm';
-import SharePopup from './share-popup';
-import ReactPopup from './react-popup';
+
+import BookmarkPopup from './P_bookmark-Popup'
+import SimilarPopup from './P_similar-view-popup'
+import SharePopup from './P_share-popup';
+import ReactPopup from './P_react-popup';
 
 const breakpointColumnsObj = {
     default: 5,

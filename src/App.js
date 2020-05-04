@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
+import logo from './svg/logo.svg';
 import Popups from './Components/Popup'
 import StylingButton from './Components/StylingButton';
+
+import LoginForm from './Components/LoginForm'
+
 import UploadPage from './Components/UploadPage';
 import Viewer from './Components/Viewer'
-import LoginForm from './Components/LoginForm'
-import logo from './svg/logo.svg';
 import Profile from './Components/Profile' 
 import Main from './Components/main'
 
@@ -18,8 +20,6 @@ import chatOn from './svg/On/chatOn.svg';
 import setup from './svg/Off/setup.svg';
 import setupOn from './svg/On/setupOn.svg';
 
-import search from './svg/Off/search.svg';
-import searchOn from './svg/On/searchOn.svg';
 
 
 class Popup extends Component {
@@ -47,7 +47,7 @@ class App extends Component {
       showPopup3: false,  
       showPopup4: false,  
       open: false,
-      component: <Main/>,
+      component: <Profile/>,
       num: 1,
       title: [
         {id: 2, name:'대화', content: 'dd'},
@@ -105,7 +105,7 @@ class App extends Component {
           <img className='Logo' src={logo} style={{cursor:'pointer',}} alt='로고' onClick={() =>this.onChange('Main')}/>
           <div className='search-bar'>
             <input className='serchBar' type="serch" placeholder="검색어를 입력하세요."/>
-            <StylingButton alt='검색' search background={search} backgroundH={searchOn}/>
+            <button className='search-icon' type='button' alt='검색'></button>
           </div>
 
           <div className='view-mode'>

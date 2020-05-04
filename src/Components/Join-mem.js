@@ -22,7 +22,7 @@ const customStyles = {
 function toLowerText(text) {
   return text.toLowerCase();
 }
-  
+
 function TextLength(props) {
   return <span className="textLength" >{props.text.length}/30</span>
 }

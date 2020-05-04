@@ -48,23 +48,30 @@ input {
     overflow: hidden;
     width: 100%;
     height: 180px;
-
 }
-.preview-banner  img {
+
+.preview-banner img {
     width: 100%;
 }
-.profile-upload {
+.profile-upload{
     position: absolute;
-    top: 100px;
-    left: 40px;
+    overflow: hidden;
+
     background: #3333;
     width: 180px;
-    height: 180px;
     border-radius: 50%;
+    height: 180px;
     border: 6px solid #fff;
     box-sizing: border-box;
     text-align: center;
     cursor: pointer;
+}
+.preview-profile {
+    position: absolute;
+    top: 100px;
+    left: 40px;
+
+
 }
 /* 텍스트에어리어 */
 .pf_form_wrap.textArea {
@@ -103,18 +110,42 @@ input {
     padding: 40px 0 40px 40px;
 }
 /* 국가설정 언어설정 */
+.nation-set > span, .lang-set > span{
+    padding-bottom: 10px;
+}
 .nation-set {
     display: flex;
     flex-grow: 1;
     margin-bottom: 20px;
     position: relative;
-
-    
+ 
 }
 .lang-set {
     display: flex;
     flex-direction: column;
     flex-grow: 2;
+}
+.lang-set-btn {
+    width: 260px;
+    height: 42px;
+    background: #fff;
+    border: 2px solid #2222;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+.lang-add-btn {
+    width: 92px;
+    height: 34px;
+    align-self: flex-end;
+    background: #B4B2BC;
+    color: #fff;
+    border: 1px solid #B4B2BC;
+    border-radius: 25px;
+    opacity: 0.8;
+    transition: all 0.2s;
+}
+.lang-add-btn:hover {
+    opacity: 1;
 }
 .nation-selc {
     width:260px;
@@ -122,17 +153,32 @@ input {
     border: 2px solid #2222;
     border-radius: 8px;
     margin-top: 6px;
-
     background-color: #fff;
+}
+.nation-selc:hover {
+    box-shadow: none !important;
 }
 .nation-arrow-btn {
     position: absolute;
 }
+/* --------------- 비밀번호 변경 --------------- */
 .change-pw-wrap {
     display: flex;
     flex-direction: column;
     padding-bottom: 180px;
 }
+.change-pw-btn {
+    width: 136px;
+    height: 46px;
+    border-radius: 28px;
+    background: rgba(241,173,57,0.9);
+    border: 0px;
+    color: #fff;
+    transition: all 0.2s;
+}
+.change-pw-btn:hover {
+    background: #F1AD39;
+} 
 @media only screen and (min-width: 768px) {
 }
 

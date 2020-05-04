@@ -1,16 +1,11 @@
 import React, {Component} from 'react'
 import '../css/main.css'
 import Masonry from 'react-masonry-css'
-import SimilarPopup from './similar-view-popup'
+import SimilarPopup from './P_similar-view-popup'
 import tileData from './tileData';
 import Popups from './Popup'
-import StylingButton from './StylingButton';
 
 import logo from '../svg/logo.svg';
-
-import search from '../svg/Off/search.svg';
-import searchOn from '../svg/On/searchOn.svg';
-
 
 const breakpointColumnsObj = {
     default: 6,
@@ -24,7 +19,7 @@ class Main extends Component {
     constructor(props) {
         super(props)
         this.state ={
-            main: 123,
+            component: <Main/>,
         }
     }
     
@@ -57,9 +52,9 @@ class Main extends Component {
                     <img className='Logo' src={logo} style={{cursor:'pointer',}} alt='로고' onClick={this.props.moveMain}/>
                     <div className='search-bar'>
                         <input className='serchBar' type="serch" placeholder="검색어를 입력하세요."/>
-                        <StylingButton alt='검색' search background={search} backgroundH={searchOn}/>
+                        <button className='search-icon' type='button' alt='검색'></button>
                     </div>
-                    <div className='margin-auto follow-btn'>
+                    <div className='margin-auto main-follow-btn'>
                         <img src={require('../svg/follow.svg')} alt='팔로우'/>
                     </div>
                     <div className='margin-auto'>

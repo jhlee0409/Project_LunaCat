@@ -11,7 +11,7 @@ import Popper from '@material-ui/core/Popper';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 
-const options = ['대한민국', '中國', 'United States of America'];
+const options = ['대한민국', '中國', 'United States of America', 'United States of America',];
 
 const useStyles = theme => ({
     root: {
@@ -20,7 +20,11 @@ const useStyles = theme => ({
       right: theme.spacing(2),
     },
       });
-  
+const style = ({
+    background:'#fff',
+    border: 'none',
+    boxShadow:'none'
+})
 class SplitButton extends Component {
     anchorRef = createRef(null);
     constructor(props) {
@@ -62,34 +66,33 @@ class SplitButton extends Component {
     };
 
     render() {
-        const { classes } = this.props;
         return (
             <Grid container alignItems="center">
                 <Grid  item xs={12}>
-                    <ButtonGroup className='' variant="contained"  ref={this.anchorRef} aria-label="split button">
-                        <Button className='nation-selc'  onClick={this.handleClick}>{options[this.state.selectedIndex]}</Button>
+                    <ButtonGroup  variant="contained" style={{boxShadow:'none',border:'2px solid #2222'}} ref={this.anchorRef} aria-label="split button">
+                        <Button className='nation-selc' style={style} onClick={this.handleClick}>{options[this.state.selectedIndex]}</Button>
                         <Button
                             className='nation-arrow-btn'
-                            
                             size="small"
                             aria-controls={this.state.open ? 'split-button-menu' : undefined}
                             aria-expanded={this.state.open ? 'true' : undefined}
                             aria-label="select merge strategy"
                             aria-haspopup="menu"
                             onClick={this.handleToggle}
+                            style={style}
                         >
                             <img src={require('../svg/arrowDown.svg') }alt='화살표'/>
                         </Button>
                     </ButtonGroup>
-                    <Popper open={this.state.open} anchorEl={this.anchorRef.current} role={undefined} transition disablePortal>
+                    <Popper open={this.state.open} anchorEl={this.anchorRef.current} role={undefined} transition disablePortal style={{width:'60%'}}>
                     {({ TransitionProps, placement }) => ( <Grow {...TransitionProps} style={{transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom',}}>
-                        <Paper>
+                        <Paper style={{maxHeight: 200, overflowY:'auto',}}> 
                             <ClickAwayListener onClickAway={this.handleClose}>
-                            <MenuList id="split-button-menu">
+                            <MenuList id="split-button-menu" >
                                 {options.map((option, index) => (
                                 <MenuItem
                                     key={option}
-                                    disabled={index === 3}
+                                    disabled={index === 50}
                                     selected={index === this.state.selectedIndex}
                                     onClick={(e) => this.handleMenuItemClick(e, index)}
                                 >
@@ -115,25 +118,35 @@ class Profile extends Component {
         this.state={
             bannerFile: null,
             profileFile: null
-            
         }
-        this.uploadSingleFile = this.uploadSingleFile.bind(this)
+        this.uploadBannerFile = this.uploadBannerFile.bind(this)
+        this.uploadProfileFile = this.uploadProfileFile.bind(this)
         this.upload = this.upload.bind(this)
     }
-    uploadSingleFile(e) {
+
+    uploadBannerFile(e) {
         this.setState({
             bannerFile: URL.createObjectURL(e.target.files[0])
+        })
+    }
+    uploadProfileFile(e) {
+        this.setState({
+            profileFile: URL.createObjectURL(e.target.files[0])
         })
     }
 
     upload(e) {
         e.preventDefault()
         console.log(this.state.bannerFile)
+        console.log(this.state.profileFile)
     }
     render() {
-        let imgPreview;
+        let imgPreviewB;
+        let imgPreviewF;
         if (this.state.bannerFile) {
-            imgPreview = <img src={this.state.bannerFile} alt='' />;
+            imgPreviewB = <img src={this.state.bannerFile} alt='배너' />;
+        } else if (this.state.profileFile) {
+            imgPreviewF = <img src={this.state.profileFile} alt='프로필' />;
         }
         return (
             <div className='padding-top '>
@@ -144,11 +157,16 @@ class Profile extends Component {
                             <button type='submit' className='submit-profile-btn'>변경하기</button>
                         </div>
                         <div className='profile-image-upload'> 
-                            <input className='banner-upload' type='file' alt='배너' onChange={this.uploadSingleFile} ></input>
                             <div className='preview-banner'>
-                            {imgPreview}
+                                <input className='banner-upload' type='file' alt='배너' onChange={this.uploadBannerFile} ></input>
+                                {imgPreviewB}
+                                </div>
+                                <label for='banner-upload'>배너업로드</label>
+                            <div className='preview-profile'>
+                                <input className='profile-upload' type='file' alt='프로필' onChange={this.uploadProfileFile} ></input>
+                                {imgPreviewF}
                             </div>
-                            <input className='profile-upload' type='file' alt='프로필'></input>
+
                         </div>
                         <div className='pf_form_wrap textArea'>
                             <textarea name='content'cols='300' rows='20' placeholder='자신을 소개해봐요!'></textarea>
@@ -165,14 +183,14 @@ class Profile extends Component {
                             </div>
                             <div className='flex-column lang-set'>
                                 <span>언어설정</span>
-                                <button type='button'>한국어</button>
-                                <button type='button'>English</button>
-                                <button type='button'>추가하기</button>
+                                <button type='button' className='lang-set-btn'>한국어</button>
+                                <button type='button' className='lang-set-btn'>English</button>
+                                <button type='button' className='lang-add-btn'>추가하기</button>
                             </div>
                         </div>
                         <div className='change-pw-wrap'>
                             <div className='pf_form_wrap' >
-                                <button type='button'>비밀번호 변경</button>
+                                <button type='button' className='change-pw-btn'>비밀번호 변경</button>
                             </div>
                             <div></div>
                         </div>
