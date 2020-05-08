@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import logo from './svg/logo.svg';
 import Popups from './Components/Popup'
+
 import StylingButton from './Components/StylingButton';
 
 import LoginForm from './Components/LoginForm'
@@ -136,7 +137,6 @@ class App extends Component {
             {this.state.showPopup4 ? <Popup alt='설정' title={this.state.title[2].name} text={this.state.title[2].content} closePopup={()=>this.togglePopup(4)}/> : null} 
         </nav>
           {this.state.component}
-      
       </div>     
     ); 
   }

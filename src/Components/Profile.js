@@ -11,6 +11,8 @@ import Popper from '@material-ui/core/Popper';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 
+import Modal from 'react-modal'
+
 const options = ['대한민국', '中國', 'United States of America', 'United States of America',];
 
 const useStyles = theme => ({
@@ -25,6 +27,68 @@ const style = ({
     border: 'none',
     boxShadow:'none'
 })
+
+const customStyles = {
+    content : {
+        background: '#fff',
+        outline: 'none',
+        margin: 'auto',
+        right: 'auto ',
+        bottom: 'auto ',
+        top: '50%  ',
+        left: '50% ',
+        transform: 'translate(-50%, -50%) ',
+        position: 'fixed',
+        overflow: 'visible ',  
+        width: 340,
+    }
+  };
+
+class ChangePwPopup extends Component {
+    constructor (props) {
+        super(props);
+        this.state = {
+            showModal: false,
+        };  
+        this.handleModal=this.handleModal.bind(this)
+        
+      }    
+      handleModal =()=> {
+        this.setState({ showModal: !this.state.showModal });
+    }
+    
+    componentWillMount() {
+      Modal.setAppElement('body');
+  }
+
+      render () {
+        return (
+          <div style={{marginLeft: 'auto'}}>
+            {/* 비밀번호 변경 옵션*/}
+            <button type='button' className='change-pw-btn' onClick={this.handleModal}>비밀번호 변경</button>
+
+            <Modal className={this.props.className} isOpen={this.state.showModal}  style={customStyles}>
+                <form>
+                    <div className='viewer-popup-top'>
+                    비밀번호 변경하기
+                    <button type='submit' className='submit-profile-btn submit-pw-btn' onClick={this.handleModal} >변경하기</button>
+                    </div>           
+                    <ul className='viewer-popup-main'>
+                        <li className='pf_form_wrap'><p>기존 비밀번호</p><input type='password' name='nickname' maxLength='30' placeholder='닉네임을 입력하세요'></input></li>
+                        <li className='pf_form_wrap'><p>새로운 비밀번호</p><input type='password' name='nickname' maxLength='30' placeholder='영문 + 숫자 + 특수문자 (8자 이상)'></input></li>
+                        <li className='pf_form_wrap'><p>새로운 비밀번호 확인</p><input type='password' name='nickname' maxLength='30' placeholder='영문 + 숫자 + 특수문자 (8자 이상)'></input></li>
+                    </ul>
+                    <div className='viewer-popup-x'>
+                        <button className='viewer-popup-btn' type='button' onClick={this.handleModal} >닫기</button>
+                    </div>
+                </form>
+            </Modal>
+          </div>
+        );
+      }
+    }
+
+
 class SplitButton extends Component {
     anchorRef = createRef(null);
     constructor(props) {
@@ -117,11 +181,15 @@ class Profile extends Component {
         super(props)
         this.state={
             bannerFile: null,
-            profileFile: null
+            profileFile: null,
+            introduce:'',
+            nickname:'',
+            id:'',
         }
         this.uploadBannerFile = this.uploadBannerFile.bind(this)
         this.uploadProfileFile = this.uploadProfileFile.bind(this)
         this.upload = this.upload.bind(this)
+        this.handleChange= this.handleChange.bind(this)
     }
 
     uploadBannerFile(e) {
@@ -140,17 +208,30 @@ class Profile extends Component {
         console.log(this.state.bannerFile)
         console.log(this.state.profileFile)
     }
+    handleChange = (e) => {
+        this.setState({
+          [e.target.name]: e.target.value
+        })
+    
+      }
+    handleSubmit = (e) => {
+        alert(`Banner file was submitted: ${this.state.bannerFile} 
+        and Profile file : ${this.state.profileFile}
+        and introduce content : ${this.state.introduce}, nickname = ${this.state.nickname}, id = ${this.state.id}`);
+        e.preventDefault();
+      }
     render() {
         let imgPreviewB;
         let imgPreviewF;
         if (this.state.bannerFile) {
             imgPreviewB = <img src={this.state.bannerFile} alt='배너' />;
-        } else if (this.state.profileFile) {
+        } 
+        if (this.state.profileFile) {
             imgPreviewF = <img src={this.state.profileFile} alt='프로필' />;
         }
         return (
             <div className='padding-top '>
-                <form>
+                <form onSubmit={this.handleSubmit} >
                     <div className='bg-color'>
                         <div className='profile-top'>
                             <span>프로필 설정</span>
@@ -158,23 +239,24 @@ class Profile extends Component {
                         </div>
                         <div className='profile-image-upload'> 
                             <div className='preview-banner'>
-                                <input className='banner-upload' type='file' alt='배너' onChange={this.uploadBannerFile} ></input>
+                                <input id='banner-upload' type='file' alt='배너'  onChange={this.uploadBannerFile}></input>
                                 {imgPreviewB}
-                                </div>
-                                <label for='banner-upload'>배너업로드</label>
+                                <label htmlFor='banner-upload'>배너업로드</label>
+                            </div>
                             <div className='preview-profile'>
-                                <input className='profile-upload' type='file' alt='프로필' onChange={this.uploadProfileFile} ></input>
+                                <input id='profile-upload' type='file' alt='프로필' onChange={this.uploadProfileFile} ></input>
                                 {imgPreviewF}
+                                <label htmlFor='profile-upload'>프로필업로드</label>
                             </div>
 
                         </div>
                         <div className='pf_form_wrap textArea'>
-                            <textarea name='content'cols='300' rows='20' placeholder='자신을 소개해봐요!'></textarea>
+                            <textarea name='introduce'cols='300' rows='20' onChange={this.handleChange} placeholder='자신을 소개해봐요!'></textarea>
                         </div>
                         
                         <div className='pf_form_wrap'><p>이메일</p><span>asfasfsf@asdfgadsfasf.com</span></div>
-                        <div className='pf_form_wrap'><p>닉네임</p><input type='text' name='nickname' maxLength='30' placeholder='닉네임을 입력하세요'></input></div>
-                        <div className='pf_form_wrap'><p>아이디</p><input type='text' name='nickname' maxLength='30' placeholder='@QGSAFDWQRF'></input></div>
+                        <div className='pf_form_wrap'><p>닉네임</p><input type='text' onChange={this.handleChange} name='nickname' maxLength='30' placeholder='닉네임을 입력하세요'></input></div>
+                        <div className='pf_form_wrap'><p>아이디</p><input type='text' onChange={this.handleChange} name='id' maxLength='30' placeholder='@QGSAFDWQRF'></input></div>
                     
                         <div className='pf_form_wrap flex-content'>
                             <div className='flex-column nation-set'>
@@ -190,7 +272,7 @@ class Profile extends Component {
                         </div>
                         <div className='change-pw-wrap'>
                             <div className='pf_form_wrap' >
-                                <button type='button' className='change-pw-btn'>비밀번호 변경</button>
+                                <ChangePwPopup/>
                             </div>
                             <div></div>
                         </div>

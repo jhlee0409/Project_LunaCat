@@ -52,7 +52,8 @@
     display: flex;
     width: 260px;
     height: 52px;
-    right: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     border-radius: 26px;
     box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.2);
     bottom: 1%;
