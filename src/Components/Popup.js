@@ -112,7 +112,7 @@ class ControlledPopup extends React.Component {
     return (
       <div>
         <div className='PFname'>
-          <Avatar style={{cursor: 'pointer'}}alt=" 이름" src="" onClick={this.openModal}>안녕</Avatar>
+          <Avatar style={{cursor: 'pointer'}} alt=" 이름" src="" onClick={this.openModal}></Avatar>
         </div>
         
         <Popup  open={this.state.open}  onClose={this.closeModal} >

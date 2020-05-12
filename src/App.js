@@ -21,6 +21,7 @@ import chatOn from './svg/On/chatOn.svg';
 import setup from './svg/Off/setup.svg';
 import setupOn from './svg/On/setupOn.svg';
 
+import JoinForm from './Components/Join-Form v2'
 
 
 class Popup extends Component {
@@ -43,12 +44,13 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {  
+      username:null,
       showPopup1: false,
       showPopup2: false, 
       showPopup3: false,  
       showPopup4: false,  
       open: false,
-      component: <Profile/>,
+      component: <Viewer/>,
       num: 1,
       title: [
         {id: 2, name:'대화', content: 'dd'},
@@ -56,6 +58,12 @@ class App extends Component {
         {id: 4, name: '설정', content: '프로필변경 팝업'} 
       ]          
     }
+  }
+  
+  componentDidMount() {
+    fetch('api/group')
+    .then(res=>res.json())
+    .then(data=> this.setState({username:data.username}))
   }
 
   onChange= (name) =>{
@@ -98,6 +106,7 @@ class App extends Component {
   }
  
   render(){
+    const {username} = this.state;
     return (
       <div className="App"> 
         
@@ -122,7 +131,7 @@ class App extends Component {
           </div>
           
           <Popups alt='이름' Profile={()=>this.onChange('Profile')}/>
-          
+          {username ? `Hello ${username}` : 'Hello World'}
 
 
             <div className='option'>

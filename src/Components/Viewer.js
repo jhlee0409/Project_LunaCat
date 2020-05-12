@@ -29,10 +29,12 @@ class Viewer extends Component {
         super(props)
         this.state= {
             clicked: false,
+            clicked1: false,
             color: '#A49FBA',
+            color1: '#A49FBA',
             tugoName: 'ABCD',
             tugoDatetime: '2020-03-31',
-            transName: 'ABCD',
+            transName: 'ABCD11',
             transDatetime: '2020-03-31',
             reactCount: '2,164',
             heartCount: 294,
@@ -47,25 +49,35 @@ class Viewer extends Component {
             fbGroup: fbGroupData,
         }
         this.toggleBtn=this.toggleBtn.bind(this)
-        this.colorChange=this.colorChange.bind(this)
         this.toggle=this.toggle.bind(this)
+        this.toggle1=this.toggle1.bind(this)
     }
 
     handleCreate = (data) => {
         this.setState({fb: this.state.fb.concat({key: this.key++,...data})})
       }
 
-    colorChange = () => {
+
+    toggle = () => {
+        this.setState({clicked: !this.state.clicked})
         var color1 = '#A49FBA',
-            color2 = '#F1AD39'
+        color2 = '#F1AD39'
         if (this.state.clicked === true) {
             this.setState({color: color1})
         } else if (this.state.clicked === false) {
             this.setState({color: color2})
         }
+        
     }
-    toggle = () => {
-        this.setState({clicked: !this.state.clicked})
+    toggle1 = () => {
+        this.setState({clicked1: !this.state.clicked1})
+        var color1 = '#A49FBA',
+        color2 = '#F1AD39'
+        if (this.state.clicked1 === true) {
+            this.setState({color1: color1})
+        } else if (this.state.clicked1 === false) {
+            this.setState({color1: color2})
+        }
         
     }
 
@@ -148,15 +160,15 @@ class Viewer extends Component {
                                 <img src={require('../svg/profile-img.svg')} alt='샘플이미지'/>
 
                                 <div className='tugo-profile'>
-                                    <p className='profile-id'>아이디s</p> 
+                                    <p className='profile-id'>{this.state.tugoName}</p> 
                                     <p className='profile-email'>@아이디</p>
                                 </div>
                                 <div className='tugo-sub'>
                                     <div className='dot'></div>
-                                    <button type='button' className='follow-btn' style={{color: this.state.color}} onClick={()=> {this.setState({clicked: !this.state.clicked}); this.colorChange()}}>{this.state.clicked? '팔로잉':'팔로우'}</button>
+                                    <button type='button' className='follow-btn' style={{color: this.state.color}} onClick={()=> {this.toggle(); }}>{this.state.clicked? '팔로잉':'팔로우'}</button>
                                     <span className='tugo-datetime'>{this.state.tugoDatetime}</span>
                                 </div>
-                                <button type='button' className='tugo-more-btn'></button>
+                                <FbPopup className={`fb-more-option fb-more-option`} id={this.state.tugoName}/>
                                 
                             </div>
                             <div>
@@ -177,14 +189,15 @@ class Viewer extends Component {
                                 <img src={require('../svg/profile-img.svg')} alt='샘플이미지'/>
 
                                 <div className='translate-profile'>
-                                    <p className='profile-id'>아이디s</p> 
+                                    <p className='profile-id'>{this.state.transName}</p> 
                                     <p className='profile-email'>@아이디</p>
                                 </div>
                                 <div className='translate-sub'>
                                     <button type='button' className='follow-btn' onClick={this.textChange}>{this.state.text}</button>
+                                    <button type='button' className='follow-btn' style={{color: this.state.color1}} onClick={()=> {this.toggle1(); }}>{this.state.clicked1? '팔로잉':'팔로우'}</button>
                                     <span className='translate-datetime'>{this.state.transDatetime}</span>
                                 </div>
-                                <button type='button' className='tugo-more-btn'></button>
+                                <FbPopup className={`fb-more-option fb-more-option`} id={this.state.transName}/>
                             </div>
                             <div>
                                 <p className='tugo-title'>제목</p>
