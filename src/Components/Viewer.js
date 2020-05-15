@@ -52,6 +52,7 @@ class Viewer extends Component {
         this.toggle=this.toggle.bind(this)
         this.toggle1=this.toggle1.bind(this)
     }
+  
 
     handleCreate = (data) => {
         this.setState({fb: this.state.fb.concat({key: this.key++,...data})})
@@ -202,7 +203,7 @@ class Viewer extends Component {
                             <div>
                                 <p className='tugo-title'>제목</p>
                                 <div className='tugo-content'>
-                                    본글
+                                이미지
                                 </div>
                             </div>
                         </div>
